@@ -100,7 +100,7 @@ require('lazy').setup({
     config = function()
       -- NERDTree configuration goes here
       -- Open NERDTree automatically when Neovim starts
-      vim.cmd('autocmd VimEnter * NERDTree')
+      -- vim.cmd('autocmd VimEnter * NERDTree')
 
       -- Set NERDTree as the default file explorer
       vim.g.NERDTreeWinPos = "left"
