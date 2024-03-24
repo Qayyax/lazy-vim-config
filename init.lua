@@ -81,19 +81,15 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-  'ellisonleao/gruvbox.nvim',
   'preservim/nerdtree',
-
+  "olimorris/onedarkpro.nvim",
   -- Tokyo theme
   'folke/tokyonight.nvim',
-  -- 'nyoom-engineering/nyoom.nvim',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
-
-
   {
     -- NERDTree configuration
     'preservim/nerdtree',
@@ -184,17 +180,13 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    -- 'navarasu/onedark.nvim',
-    -- 'nyoom-engineering/nyoom.nvim',
-    -- 'ellisonleao/gruvbox.nvim',
-    "folke/tokyonight.nvim",
+    -- Theme github
+    "olimorris/onedarkpro.nvim",
+    -- "folke/tokyonight.nvim",
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme 'onedark'
-      vim.cmd.colorscheme 'tokyonight-night'
-      -- vim.cmd.colorscheme 'gruvbox'
-      -- vim.cmd.colorscheme 'nyoom'
+      vim.cmd.colorscheme 'onedark_dark'
+      -- vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
@@ -204,8 +196,8 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'onedark',
+        icons_enabled = true,
+        theme = 'onedark_dark',
         component_separators = '|',
         section_separators = '',
       },
