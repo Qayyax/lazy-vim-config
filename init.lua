@@ -83,6 +83,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'preservim/nerdtree',
   "olimorris/onedarkpro.nvim",
+  "rose-pine/neovim",
   -- Tokyo theme
   'folke/tokyonight.nvim',
   -- Detect tabstop and shiftwidth automatically
@@ -182,12 +183,14 @@ require('lazy').setup({
   {
     -- Theme github
     -- "olimorris/onedarkpro.nvim",
-    "folke/tokyonight.nvim",
+    -- "folke/tokyonight.nvim",
+    "rose-pine/neovim",
     priority = 1000,
     config = function()
       -- vim.cmd.colorscheme 'onedark_dark'
       -- vim.cmd.colorscheme 'onedark_vivid'
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
 
@@ -198,7 +201,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'tokyonight',
+        theme = 'rose-pine',
         component_separators = '|',
         section_separators = '',
       },
