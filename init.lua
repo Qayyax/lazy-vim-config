@@ -181,12 +181,13 @@ require('lazy').setup({
 
   {
     -- Theme github
-    "olimorris/onedarkpro.nvim",
-    -- "folke/tokyonight.nvim",
+    -- "olimorris/onedarkpro.nvim",
+    "folke/tokyonight.nvim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark_dark'
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'onedark_dark'
+      -- vim.cmd.colorscheme 'onedark_vivid'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
@@ -197,7 +198,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'onedark_dark',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
