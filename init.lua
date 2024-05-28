@@ -180,6 +180,14 @@ require('lazy').setup({
     },
   },
 
+  {'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      vim.opt.termguicolors = true
+      require("bufferline").setup{}
+    end,
+  },
   {
     -- Theme github
     -- "olimorris/onedarkpro.nvim",
@@ -443,6 +451,10 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
+
+-- map jk & <esc> to NORMAL mode in TERMINAL mode
+vim.keymap.set('t', 'jk', '<C-\\><C-n>')
+vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
