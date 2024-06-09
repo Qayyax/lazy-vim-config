@@ -92,7 +92,14 @@ require('lazy').setup({
   -- Vim go setup
     {
     'fatih/vim-go',
-    run = ':GoUpdateBinaries'
+    run = ':GoUpdateBinaries',
+    config = function()
+      -- vim-go configuration settings
+      vim.g.go_def_mapping_enabled = 0
+      vim.g.go_fmt_command = "goimports"
+      vim.g.go_auto_type_info = 1
+      vim.g.go_fmt_autosave = 1  -- Auto-format on save
+    end
   },
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -278,10 +285,6 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
 }, {})
 
--- vim-go configuration settings
-vim.g.go_def_mapping_enabled = 0
-vim.g.go_fmt_command = "goimports"
-vim.g.go_auto_type_info = 1
 
 require("nvim-autopairs").setup({})
 
