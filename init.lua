@@ -37,9 +37,10 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now :)
 --]]
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+-- NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -54,9 +55,10 @@ vim.o.expandtab = true
 
 -- Configure visual mode indent when pressing >
 vim.keymap.set('x', '>', '>gv', { noremap = true, silent = true })
+
 -- Install package manager
---    https://github.com/folke/lazy.nvim
---    `:help lazy.nvim.txt` for more info
+-- https://github.com/folke/lazy.nvim
+-- `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -71,10 +73,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
+-- You can configure plugins using the `config` key.
 --
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
+-- You can also configure plugins after the setup call,
+-- as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
   "windwp/nvim-autopairs",
@@ -90,7 +92,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- Vim go setup
-    {
+  {
     'fatih/vim-go',
     run = ':GoUpdateBinaries',
     config = function()
@@ -98,11 +100,11 @@ require('lazy').setup({
       vim.g.go_def_mapping_enabled = 0
       vim.g.go_fmt_command = "goimports"
       vim.g.go_auto_type_info = 1
-      vim.g.go_fmt_autosave = 1  -- Auto-format on save
+      vim.g.go_fmt_autosave = 1 -- Auto-format on save
     end
   },
   -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
+  -- The configuration is done below. Search for lspconfig to find it below.
   {
     -- NERDTree configuration
     'preservim/nerdtree',
@@ -177,8 +179,8 @@ require('lazy').setup({
           vim.schedule(function()
             gs.next_hunk()
           end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
+            return '<Ignore>'
+          end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
         vim.keymap.set({ 'n', 'v' }, '[c', function()
           if vim.wo.diff then
             return '[c'
@@ -252,7 +254,7 @@ require('lazy').setup({
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
+        -- refer to the README for telescope-fzf-native for more instructions.
         build = 'make',
         cond = function()
           return vim.fn.executable 'make' == 1
@@ -271,17 +273,17 @@ require('lazy').setup({
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
+  -- These are some example plugins that I've included in the kickstart repository.
+  -- Uncomment any of the lines below to enable them.
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  -- You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
+  -- up-to-date with whatever is in the kickstart repo.
+  -- Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+  -- For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
 }, {})
 
@@ -303,8 +305,8 @@ vim.wo.relativenumber = true
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+-- Remove this option if you want your OS clipboard to remain independent.
+-- See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
@@ -363,8 +365,6 @@ require('telescope').setup {
     },
   },
 }
-
-
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -470,7 +470,7 @@ vim.keymap.set('t', 'jk', '<C-\\><C-n>')
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
 -- [[ Configure LSP ]]
---  This function gets run when an LSP connects to a particular buffer.
+-- This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
@@ -532,21 +532,19 @@ require('mason').setup()
 require('mason-lspconfig').setup()
 
 -- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
+-- Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
+-- Add any additional override configuration in the following tables. They will be passed to
+-- the `settings` field of the server config. You must look up that documentation yourself.
 --
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
+-- If you want to override the default filetypes that your language server will attach to you can
+-- define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  gopls = {},
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
