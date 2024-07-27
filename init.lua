@@ -218,15 +218,15 @@ require('lazy').setup({
   },
   {
     -- Theme github
-    -- "olimorris/onedarkpro.nvim",
+    "olimorris/onedarkpro.nvim",
     -- "folke/tokyonight.nvim",
-    "rose-pine/neovim",
+    -- "rose-pine/neovim",
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme 'onedark_dark'
+      vim.cmd.colorscheme 'onedark_dark'
       -- vim.cmd.colorscheme 'onedark_vivid'
       -- vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.colorscheme 'rose-pine'
+      -- vim.cmd.colorscheme 'rose-pine'
     end,
   },
 
