@@ -223,7 +223,13 @@ require('lazy').setup({
     -- "rose-pine/neovim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark_dark'
+      require("onedarkpro").setup({
+        colors = {
+          onedark = { bg = "#1A1320" }
+        }
+      })
+      -- vim.cmd.colorscheme 'onedark_dark'
+      vim.cmd.colorscheme 'onedark'
       -- vim.cmd.colorscheme 'onedark_vivid'
       -- vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'rose-pine'
@@ -237,7 +243,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'rose-pine',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
