@@ -225,7 +225,8 @@ require('lazy').setup({
     config = function()
       require("onedarkpro").setup({
         colors = {
-          onedark = { bg = "#1A1320" }
+          -- onedark = { bg = "#1A1320" }
+          onedark = { bg = "#000000" }
         }
       })
       -- vim.cmd.colorscheme 'onedark_dark'
