@@ -292,24 +292,27 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  -- prettier config that may not be working
   {
-    'MunifTanjim/prettier.nvim',
+    'mhartington/formatter.nvim',
     config = function()
-      require('prettier').setup({
-        bin = 'prettier',
-        filetypes = {
-          "javascript",
-          "typescript",
-          "css",
-          "scss",
-          "json",
-          "html",
-          "markdown",
-          "yaml",
-        },
+      local formatter_prettier = { require('formatter.defaults.prettier') }
+      require("formatter").setup({
+        filetype = {
+          javascript      = formatter_prettier,
+          javascriptreact = formatter_prettier,
+          typescript      = formatter_prettier,
+          typescriptreact = formatter_prettier,
+        }
+      })
+      -- automatically format buffer before writing to disk:
+      vim.api.nvim_create_augroup('BufWritePreFormatter', {})
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        command = 'FormatWrite',
+        group = 'BufWritePreFormatter',
+        pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
       })
     end,
+    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
