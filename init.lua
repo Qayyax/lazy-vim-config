@@ -292,6 +292,25 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  -- prettier config that may not be working
+  {
+    'MunifTanjim/prettier.nvim',
+    config = function()
+      require('prettier').setup({
+        bin = 'prettier',
+        filetypes = {
+          "javascript",
+          "typescript",
+          "css",
+          "scss",
+          "json",
+          "html",
+          "markdown",
+          "yaml",
+        },
+      })
+    end,
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   -- These are some example plugins that I've included in the kickstart repository.
