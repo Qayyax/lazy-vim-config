@@ -83,7 +83,6 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-  'preservim/nerdtree',
   "olimorris/onedarkpro.nvim",
   "rose-pine/neovim",
   -- Tokyo theme
