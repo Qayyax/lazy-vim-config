@@ -102,6 +102,10 @@ require('lazy').setup({
       vim.g.go_fmt_autosave = 1 -- Auto-format on save
     end
   },
+  {
+    'nvimtools/none-ls.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
   -- NOTE: This is where your plugins related to LSP can be installed.
   -- The configuration is done below. Search for lspconfig to find it below.
   {
@@ -301,28 +305,28 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  {
-    'mhartington/formatter.nvim',
-    config = function()
-      local formatter_prettier = { require('formatter.defaults.prettier') }
-      require("formatter").setup({
-        filetype = {
-          javascript      = formatter_prettier,
-          javascriptreact = formatter_prettier,
-          typescript      = formatter_prettier,
-          typescriptreact = formatter_prettier,
-        }
-      })
-      -- automatically format buffer before writing to disk:
-      vim.api.nvim_create_augroup('BufWritePreFormatter', {})
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        command = 'FormatWrite',
-        group = 'BufWritePreFormatter',
-        pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
-      })
-    end,
-    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-  },
+  -- {
+  --   'mhartington/formatter.nvim',
+  --   config = function()
+  --     local formatter_prettier = { require('formatter.defaults.prettier') }
+  --     require("formatter").setup({
+  --       filetype = {
+  --         javascript      = formatter_prettier,
+  --         javascriptreact = formatter_prettier,
+  --         typescript      = formatter_prettier,
+  --         typescriptreact = formatter_prettier,
+  --       }
+  --     })
+  --     -- automatically format buffer before writing to disk:
+  --     vim.api.nvim_create_augroup('BufWritePreFormatter', {})
+  --     vim.api.nvim_create_autocmd('BufWritePre', {
+  --       command = 'FormatWrite',
+  --       group = 'BufWritePreFormatter',
+  --       pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
+  --     })
+  --   end,
+  --   ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  -- },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   -- These are some example plugins that I've included in the kickstart repository.
@@ -604,7 +608,16 @@ local servers = {
     },
   },
 }
+-- Set up null-ls
+local null_ls = require("null-ls")
 
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettier.with({
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    }),
+  },
+})
 -- Setup neovim lua configuration
 require('neodev').setup()
 
