@@ -108,16 +108,26 @@ require('lazy').setup({
   {
     -- NERDTree configuration
     'preservim/nerdtree',
+    dependencies = { 'ryanoasis/vim-devicons' },
     config = function()
       -- NERDTree configuration goes here
       -- Open NERDTree automatically when Neovim starts
       -- vim.cmd('autocmd VimEnter * NERDTree')
-
+      -- vim.g.NERDTreeMinimalUI = 1 -- Minimalistic UI
+      vim.g.NERDTreeDirArrows = 1 -- Use arrows for directories
       -- Set NERDTree as the default file explorer
       vim.g.NERDTreeWinPos = "left"
-
+      vim.g.NERDTreeIgnore = { '.git$', 'node_modules$', '.cache' }
       -- Use custom keybindings
       vim.api.nvim_set_keymap('n', '<Leader>n', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
+    end
+  },
+  {
+    'ryanoasis/vim-devicons',
+    config = function()
+      require('nvim-web-devicons').setup {
+        default = true, -- Enable default icons for unknown filetypes
+      }
     end
   },
   {
