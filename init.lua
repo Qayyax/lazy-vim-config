@@ -203,19 +203,6 @@ require('lazy').setup({
           end)
           return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
-
-        -- Create a command `:Format` local to the LSP buffer
-        vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-          vim.lsp.buf.format()
-        end, { desc = 'Format current buffer with LSP' })
-
-        -- Add this: Set up autoformat on save
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format()
-          end,
-        })
       end,
     },
   },
@@ -333,28 +320,6 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
-  },
-  {
-    'mhartington/formatter.nvim',
-    config = function()
-      local formatter_prettier = { require('formatter.defaults.prettier') }
-      require("formatter").setup({
-        filetype = {
-          javascript      = formatter_prettier,
-          javascriptreact = formatter_prettier,
-          typescript      = formatter_prettier,
-          typescriptreact = formatter_prettier,
-        }
-      })
-      -- automatically format buffer before writing to disk:
-      vim.api.nvim_create_augroup('BufWritePreFormatter', {})
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        command = 'FormatWrite',
-        group = 'BufWritePreFormatter',
-        pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
-      })
-    end,
-    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -598,6 +563,14 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  -- Add this: Set up autoformat on save
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  })
 end
 
 -- document existing key chains
