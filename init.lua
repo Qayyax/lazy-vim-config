@@ -231,25 +231,38 @@ require('lazy').setup({
   },
   {
     -- Theme github
-    "olimorris/onedarkpro.nvim",
-    -- "folke/tokyonight.nvim",
+    -- "olimorris/onedarkpro.nvim",
+    "folke/tokyonight.nvim",
     -- "rose-pine/neovim",
     priority = 1000,
     config = function()
-      require("onedarkpro").setup({
-        colors = {
-          -- onedark = { bg = "#1A1320" }
-          onedark = { bg = "#1C141F" }
-        }
-      })
+      -- require("onedarkpro").setup({
+      --   colors = {
+      --     -- onedark = { bg = "#1A1320" }
+      --     onedark = { bg = "#1C141F" }
+      --   }
+      -- })
       -- vim.cmd.colorscheme 'onedark_dark'
-      vim.cmd.colorscheme 'onedark'
+      -- vim.cmd.colorscheme 'onedark'
       -- vim.cmd.colorscheme 'onedark_vivid'
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'rose-pine'
     end,
   },
 
+  -- {
+  --   -- Set lualine as statusline
+  --   'nvim-lualine/lualine.nvim',
+  --   -- See `:help lualine.txt`
+  --   opts = {
+  --     options = {
+  --       icons_enabled = true,
+  --       theme = 'auto',
+  --       component_separators = '|',
+  --       section_separators = '',
+  --     },
+  --   },
+  -- },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -258,8 +271,24 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = '',
+        section_separators = { left = '', right = '' }, -- bubbles separators
+      },
+      sections = {
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_b = { 'branch', 'diff', { 'diagnostics', sources = { 'nvim_lsp' } } },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = { 'filetype', 'progress' },
+        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
+      },
+      inactive_sections = {
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_b = { 'branch', 'diff', { 'diagnostics', sources = { 'nvim_lsp' } } },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = { 'filetype', 'progress' },
+        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
       },
     },
   },
