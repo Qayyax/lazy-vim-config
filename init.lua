@@ -264,7 +264,7 @@ require('lazy').setup({
       sections = {
         lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
         lualine_b = { 'branch', 'diff', { 'diagnostics', sources = { 'nvim_lsp' } } },
-        lualine_c = {},
+        lualine_c = { { 'filename' } }, -- Add filename here
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
         lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
@@ -272,7 +272,7 @@ require('lazy').setup({
       inactive_sections = {
         lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
         lualine_b = { 'branch', 'diff', { 'diagnostics', sources = { 'nvim_lsp' } } },
-        lualine_c = {},
+        lualine_c = { { 'filename' } }, -- Add filename here too
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
         lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
