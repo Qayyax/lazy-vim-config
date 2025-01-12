@@ -85,6 +85,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   "olimorris/onedarkpro.nvim",
   "rose-pine/neovim",
+  'mistweaverco/retro-theme.nvim',
   -- Tokyo theme
   'folke/tokyonight.nvim',
   -- Detect tabstop and shiftwidth automatically
@@ -219,20 +220,21 @@ require('lazy').setup({
   {
     -- Theme github
     -- "olimorris/onedarkpro.nvim",
-    "folke/tokyonight.nvim",
+    'mistweaverco/retro-theme.nvim',
+    -- "folke/tokyonight.nvim",
     -- "rose-pine/neovim",
     priority = 1000,
+    -- Opts is for mistweaverco/retro-theme.nvim
+    opts = {
+      italic_comments = true,
+      disable_cache = false,
+      hot_reload = false,
+    },
     config = function()
-      -- require("onedarkpro").setup({
-      --   colors = {
-      --     -- onedark = { bg = "#1A1320" }
-      --     onedark = { bg = "#1C141F" }
-      --   }
-      -- })
       -- vim.cmd.colorscheme 'onedark_dark'
       -- vim.cmd.colorscheme 'onedark'
       -- vim.cmd.colorscheme 'onedark_vivid'
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'rose-pine'
     end,
   },
