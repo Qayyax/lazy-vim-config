@@ -235,7 +235,7 @@ require('lazy').setup({
       -- vim.cmd.colorscheme 'onedark'
       -- vim.cmd.colorscheme 'onedark_vivid'
       -- vim.cmd.colorscheme 'tokyonight-night'
-      -- vim.cmd.colorscheme 'rose-pine'
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
 
