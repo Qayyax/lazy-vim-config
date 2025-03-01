@@ -673,10 +673,29 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    ['<CR>'] = cmp.mapping(
+      function(fallback)
+        if cmp.visible() then
+          local entry = cmp.get_selected_entry()
+          if entry ~= nil then
+            if entry.source then
+              if entry.source.name ~= 'nvim_lsp_signature_help' then
+                cmp.confirm { select = true }
+              else
+                cmp.abort()
+                fallback()
+              end
+            else
+              cmp.confirm { select = true }
+            end
+          else
+            fallback()
+          end
+        else
+          fallback()
+        end
+      end
+    ),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
