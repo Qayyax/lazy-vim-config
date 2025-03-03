@@ -89,7 +89,7 @@ require('lazy').setup({
   -- Tokyo theme
   'folke/tokyonight.nvim',
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  -- 'tpope/vim-sleuth',
 
   -- Vim go setup
   {
