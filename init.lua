@@ -45,10 +45,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set tabstop to 4 spaces
-vim.o.tabstop = 4
+vim.o.tabstop = 2
 
 -- Set shift width to 4 spaces
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 2
 
 -- Set expand tab to spaces
 vim.o.expandtab = true
