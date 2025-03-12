@@ -224,12 +224,6 @@ require('lazy').setup({
     -- "folke/tokyonight.nvim",
     -- "rose-pine/neovim",
     priority = 1000,
-    -- Opts is for mistweaverco/retro-theme.nvim
-    opts = {
-      italic_comments = true,
-      disable_cache = false,
-      hot_reload = false,
-    },
     config = function()
       vim.cmd.colorscheme 'onedark_dark'
       -- vim.cmd.colorscheme 'onedark'
