@@ -230,6 +230,16 @@ require('lazy').setup({
       -- vim.cmd.colorscheme 'onedark_vivid'
       -- vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'rose-pine'
+      -- Make background transparent
+      vim.cmd [[
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight NormalNC guibg=NONE ctermbg=NONE
+    highlight SignColumn guibg=NONE ctermbg=NONE
+    highlight VertSplit guibg=NONE ctermbg=NONE
+    highlight StatusLine guibg=NONE ctermbg=NONE
+    highlight LineNr guibg=NONE ctermbg=NONE
+    highlight EndOfBuffer guibg=NONE ctermbg=NONE
+    ]]
     end,
   },
 
