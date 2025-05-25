@@ -625,7 +625,7 @@ local servers = {
   gopls = {},
   pyright = {},
   rust_analyzer = {},
-  ts_ls = {}, 
+  tsserver = {}, 
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   lua_ls = {
     Lua = {
