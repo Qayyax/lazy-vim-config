@@ -609,31 +609,16 @@ require('which-key').add {
 -- before setting up the servers.
 require('mason').setup()
 
-require('mason-lspconfig').setup {
+require('mason-lspconfig').setup({
   ensure_installed = {
     'gopls',
     'pyright',
     'rust_analyzer',
-    'ts_ls', 
+    'ts_ls',
     'html',
     'lua_ls',
   },
-}
-
--- Define your LSP server configurations
-local servers = {
-  gopls = {},
-  pyright = {},
-  rust_analyzer = {},
-  tsserver = {}, 
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-}
+})
 
 -- Setup null-ls
 local null_ls = require("null-ls")
@@ -653,16 +638,16 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Setup handlers for LSPs
-require('mason-lspconfig').setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = lsp_on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+-- require('mason-lspconfig').setup_handlers {
+--   function(server_name)
+--     require('lspconfig')[server_name].setup {
+--       capabilities = capabilities,
+--       on_attach = lsp_on_attach,
+--       settings = servers[server_name],
+--       filetypes = (servers[server_name] or {}).filetypes,
+--     }
+--   end,
+-- }
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -736,3 +721,39 @@ vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393f4a", fg = "NONE" }) -- Adjust co
 vim.api.nvim_set_hl(0, "Pmenu", { bg = "#282c34", fg = "#abb2bf" }) -- Background and text color for menu
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- lsp config because lspconfig was returning nil
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    local lspconfig = require("lspconfig")
+
+    local servers = {
+      ts_ls = {},
+      gopls = {},
+      pyright = {},
+      rust_analyzer = {},
+      html = {},
+      lua_ls = {
+        Lua = {
+          workspace = { checkThirdParty = false },
+          telemetry = { enable = false },
+        },
+      },
+    }
+
+    for server_name, config in pairs(servers) do
+      local ok, server = pcall(function() return lspconfig[server_name] end)
+      if not ok or type(server.setup) ~= "function" then
+        vim.notify("⚠️ Skipping setup for " .. server_name)
+      else
+        server.setup {
+          capabilities = capabilities,
+          on_attach = lsp_on_attach,
+          settings = config,
+          filetypes = config.filetypes,
+        }
+      end
+    end
+  end,
+})
