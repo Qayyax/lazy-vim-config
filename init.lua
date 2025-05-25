@@ -534,7 +534,7 @@ vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
 -- [[ Configure LSP ]]
 -- This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local lsp_on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -604,24 +604,28 @@ require('which-key').add {
   { "<leader>w_", hidden = true },
 }
 
+
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
-require('mason-lspconfig').setup()
 
--- Enable the following language servers
--- Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
--- Add any additional override configuration in the following tables. They will be passed to
--- the `settings` field of the server config. You must look up that documentation yourself.
---
--- If you want to override the default filetypes that your language server will attach to you can
--- define the property 'filetypes' to the map in question.
+require('mason-lspconfig').setup {
+  ensure_installed = {
+    'gopls',
+    'pyright',
+    'rust_analyzer',
+    'ts_ls', 
+    'html',
+    'lua_ls',
+  },
+}
+
+-- Define your LSP server configurations
 local servers = {
   gopls = {},
   pyright = {},
   rust_analyzer = {},
-  ts_ls = {},
+  ts_ls = {}, 
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   lua_ls = {
     Lua = {
@@ -630,9 +634,9 @@ local servers = {
     },
   },
 }
--- Set up null-ls
-local null_ls = require("null-ls")
 
+-- Setup null-ls
+local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettier.with({
@@ -640,25 +644,20 @@ null_ls.setup({
     }),
   },
 })
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+-- nvim-cmp capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
+-- Setup handlers for LSPs
+require('mason-lspconfig').setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = lsp_on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
