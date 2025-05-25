@@ -214,7 +214,14 @@ require('lazy').setup({
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
       vim.opt.termguicolors = true
-      require("bufferline").setup {}
+      local bufferline = require("bufferline")
+      bufferline.setup {
+        options = {
+          style_preset = bufferline.style_preset.minimal,
+          numbers = "ordinal",
+          themable = true
+        }
+      }
     end,
   },
   {
