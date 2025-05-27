@@ -226,16 +226,16 @@ require('lazy').setup({
   },
   {
     -- Theme github
-    "olimorris/onedarkpro.nvim",
+    -- "olimorris/onedarkpro.nvim",
     -- 'mistweaverco/retro-theme.nvim',
-    -- "folke/tokyonight.nvim",
+    "folke/tokyonight.nvim",
     -- "rose-pine/neovim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark_dark'
+      -- vim.cmd.colorscheme 'onedark_dark'
       -- vim.cmd.colorscheme 'onedark'
       -- vim.cmd.colorscheme 'onedark_vivid'
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'rose-pine'
       -- Make background transparent
       vim.cmd [[
@@ -735,8 +735,8 @@ cmp.setup {
 }
 
 -- seting up color for highlight and completion
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393f4a", fg = "NONE" }) -- Adjust colors as needed
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#282c34", fg = "#abb2bf" }) -- Background and text color for menu
+-- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393f4a", fg = "NONE" }) -- Adjust colors as needed
+-- vim.api.nvim_set_hl(0, "Pmenu", { bg = "#282c34", fg = "#abb2bf" }) -- Background and text color for menu
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
