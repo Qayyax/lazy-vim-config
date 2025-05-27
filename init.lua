@@ -534,7 +534,7 @@ vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
 -- [[ Configure LSP ]]
 -- This function gets run when an LSP connects to a particular buffer.
-local lsp_on_attach = function(_, bufnr)
+local lsp_on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -559,7 +559,6 @@ local lsp_on_attach = function(_, bufnr)
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -578,12 +577,17 @@ local lsp_on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 
   -- Add this: Set up autoformat on save
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format()
-    end,
-  })
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr })
+      end,
+    })
+  end
+
+  -- Debug: Print when LSP attaches
+  print("LSP attached: " .. client.name .. " to buffer " .. bufnr)
 end
 
 -- document existing key chains
@@ -604,12 +608,19 @@ require('which-key').add {
   { "<leader>w_", hidden = true },
 }
 
+-- Setup neovim lua configuration
+require('neodev').setup()
 
--- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
+-- nvim-cmp capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Mason setup (this should come first)
 require('mason').setup()
 
-require('mason-lspconfig').setup({
+-- Setup mason-lspconfig with proper error handling
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup({
   ensure_installed = {
     'gopls',
     'pyright',
@@ -620,52 +631,87 @@ require('mason-lspconfig').setup({
   },
 })
 
--- Setup null-ls
-local null_ls = require("null-ls")
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.prettier, -- for JS/TS
-    null_ls.builtins.formatting.black,    -- for Python (optional)
-    -- null_ls.builtins.formatting.goimports, -- for Go (optional)
+-- Define server configurations
+local servers = {
+  gopls = {
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+      },
+    },
   },
-  on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({
-            bufnr = bufnr,
-            filter = function(c)
-              return c.name == "null-ls"
-            end,
-          })
-        end,
-      })
-    end
-  end,
-})
--- Setup neovim lua configuration
-require('neodev').setup()
+  pyright = {},
+  rust_analyzer = {
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+        },
+      },
+    },
+  },
+  ts_ls = {},
+  html = {},
+  lua_ls = {
+    settings = {
+      Lua = {
+        runtime = { version = 'LuaJIT' },
+        workspace = {
+          checkThirdParty = false,
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        telemetry = { enable = false },
+        diagnostics = {
+          globals = { 'vim' },
+        },
+      },
+    },
+  },
+}
 
--- nvim-cmp capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- Alternative: Direct LSP setup without mason-lspconfig handlers
+local lspconfig = require('lspconfig')
 
--- Setup handlers for LSPs
--- require('mason-lspconfig').setup_handlers {
---   function(server_name)
---     require('lspconfig')[server_name].setup {
---       capabilities = capabilities,
---       on_attach = lsp_on_attach,
---       settings = servers[server_name],
---       filetypes = (servers[server_name] or {}).filetypes,
---     }
+for server_name, server_config in pairs(servers) do
+  if lspconfig[server_name] then
+    lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
+      capabilities = capabilities,
+      on_attach = lsp_on_attach,
+    }, server_config))
+  end
+end
+
+-- -- Setup null-ls (this should come after LSP setup)
+-- local null_ls = require("null-ls")
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+--
+-- null_ls.setup({
+--   sources = {
+--     null_ls.builtins.formatting.prettier, -- for JS/TS
+--     null_ls.builtins.formatting.black,    -- for Python
+--   },
+--   on_attach = function(client, bufnr)
+--     if client.supports_method("textDocument/formatting") then
+--       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+--       vim.api.nvim_create_autocmd("BufWritePre", {
+--         group = augroup,
+--         buffer = bufnr,
+--         callback = function()
+--           vim.lsp.buf.format({
+--             bufnr = bufnr,
+--             filter = function(c)
+--               return c.name == "null-ls"
+--             end,
+--           })
+--         end,
+--       })
+--     end
 --   end,
--- }
+-- })
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -734,44 +780,3 @@ cmp.setup {
   },
 }
 
--- seting up color for highlight and completion
--- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393f4a", fg = "NONE" }) -- Adjust colors as needed
--- vim.api.nvim_set_hl(0, "Pmenu", { bg = "#282c34", fg = "#abb2bf" }) -- Background and text color for menu
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
---
--- lsp config because lspconfig was returning nil
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    local lspconfig = require("lspconfig")
-
-    local servers = {
-      ts_ls = {},
-      gopls = {},
-      pyright = {},
-      rust_analyzer = {},
-      html = {},
-      lua_ls = {
-        Lua = {
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
-        },
-      },
-    }
-
-    for server_name, config in pairs(servers) do
-      local ok, server = pcall(function() return lspconfig[server_name] end)
-      if not ok or type(server.setup) ~= "function" then
-        vim.notify("⚠️ Skipping setup for " .. server_name)
-      else
-        server.setup {
-          capabilities = capabilities,
-          on_attach = lsp_on_attach,
-          settings = config,
-          filetypes = config.filetypes,
-        }
-      end
-    end
-  end,
-})
