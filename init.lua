@@ -83,11 +83,6 @@ require("lazy").setup({
 	-- Git related plugins
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-	"olimorris/onedarkpro.nvim",
-	"rose-pine/neovim",
-	"mistweaverco/retro-theme.nvim",
-	-- Tokyo theme
-	"folke/tokyonight.nvim",
 	-- Detect tabstop and shiftwidth automatically
 	-- 'tpope/vim-sleuth',
 
