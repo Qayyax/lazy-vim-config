@@ -27,9 +27,17 @@ local opts = {}
 require("lazy").setup("plugins")
 
 -- Theme & Color scheme related plugs 
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin-mocha"
-vim.o.background = "dark"
+-- https://github.com/catppuccin/nvim?tab=readme-ov-file
+require("catppuccin").setup({
+  flavour = "auto",
+  background = {
+    dark = "mocha",
+  },
+  no_italic = false,
+  no_bold = false,
+  transparent_background = true
+})
+vim.cmd.colorscheme "catppuccin"
 
 -- Telescope config
 local builtin = require('telescope.builtin')
