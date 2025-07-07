@@ -22,26 +22,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local opts = {}
-
 require("lazy").setup("plugins")
 
--- Theme & Color scheme related plugs 
--- https://github.com/catppuccin/nvim?tab=readme-ov-file
-require("catppuccin").setup({
-  flavour = "auto",
-  background = {
-    dark = "mocha",
-  },
-  no_italic = false,
-  no_bold = false,
-  transparent_background = true, 
-  styles = {
-    comments = {"italic"},
-    conditionals = {"italic"},
-  },
-})
-vim.cmd.colorscheme "catppuccin"
 
 -- Telescope config
 local builtin = require('telescope.builtin')
