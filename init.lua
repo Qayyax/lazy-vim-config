@@ -36,7 +36,8 @@ require("lazy").setup(plugins, opts)
 
 -- Theme & Color scheme related plugs 
 require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin-mocha"
+vim.o.background = "dark"
 
 -- Telescope config
 local builtin = require('telescope.builtin')
@@ -46,23 +47,23 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' 
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 -- Tree sitter
--- available parsers
-  -- - bash                ✓ ✓ ✓ . ✓
-  -- - c                   ✓ ✓ ✓ ✓ ✓
-  -- - cpp                 ✓ ✓ ✓ ✓ ✓
-  -- - go                  ✓ ✓ ✓ ✓ ✓
-  -- - javascript          ✓ ✓ ✓ ✓ ✓
-  -- - lua                 ✓ ✓ ✓ ✓ ✓
-  -- - markdown            ✓ . ✓ ✓ ✓
-  -- - markdown_inline     ✓ . . . ✓
-  -- - python              ✓ ✓ ✓ ✓ ✓
-  -- - query               ✓ ✓ ✓ ✓ ✓
-  -- - rust                ✓ ✓ ✓ ✓ ✓
-  -- - tsx                 ✓ ✓ ✓ ✓ ✓
-  -- - typescript          ✓ ✓ ✓ ✓ ✓
-  -- - vim                 ✓ ✓ ✓ . ✓
-  -- - vimdoc              ✓ . . . ✓
   local treesitterConfig = require("nvim-treesitter.configs")
+  -- available parsers
+    -- - bash                ✓ ✓ ✓ . ✓
+    -- - c                   ✓ ✓ ✓ ✓ ✓
+    -- - cpp                 ✓ ✓ ✓ ✓ ✓
+    -- - go                  ✓ ✓ ✓ ✓ ✓
+    -- - javascript          ✓ ✓ ✓ ✓ ✓
+    -- - lua                 ✓ ✓ ✓ ✓ ✓
+    -- - markdown            ✓ . ✓ ✓ ✓
+    -- - markdown_inline     ✓ . . . ✓
+    -- - python              ✓ ✓ ✓ ✓ ✓
+    -- - query               ✓ ✓ ✓ ✓ ✓
+    -- - rust                ✓ ✓ ✓ ✓ ✓
+    -- - tsx                 ✓ ✓ ✓ ✓ ✓
+    -- - typescript          ✓ ✓ ✓ ✓ ✓
+    -- - vim                 ✓ ✓ ✓ . ✓
+    -- - vimdoc              ✓ . . . ✓
   treesitterConfig.setup({
     ensure_installed = {"lua", "javascript", "python", "tsx", "typescript", "go", "markdown", "markdown_inline"},
     sync_install = false,
