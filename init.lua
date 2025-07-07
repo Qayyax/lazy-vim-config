@@ -35,7 +35,11 @@ require("catppuccin").setup({
   },
   no_italic = false,
   no_bold = false,
-  transparent_background = true
+  transparent_background = true, 
+  styles = {
+    comments = {"italic"},
+    conditionals = {"italic"},
+  },
 })
 vim.cmd.colorscheme "catppuccin"
 
