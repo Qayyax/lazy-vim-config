@@ -40,22 +40,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 -- Tree sitter
   local treesitterConfig = require("nvim-treesitter.configs")
-  -- available parsers
-    -- - bash                ✓ ✓ ✓ . ✓
-    -- - c                   ✓ ✓ ✓ ✓ ✓
-    -- - cpp                 ✓ ✓ ✓ ✓ ✓
-    -- - go                  ✓ ✓ ✓ ✓ ✓
-    -- - javascript          ✓ ✓ ✓ ✓ ✓
-    -- - lua                 ✓ ✓ ✓ ✓ ✓
-    -- - markdown            ✓ . ✓ ✓ ✓
-    -- - markdown_inline     ✓ . . . ✓
-    -- - python              ✓ ✓ ✓ ✓ ✓
-    -- - query               ✓ ✓ ✓ ✓ ✓
-    -- - rust                ✓ ✓ ✓ ✓ ✓
-    -- - tsx                 ✓ ✓ ✓ ✓ ✓
-    -- - typescript          ✓ ✓ ✓ ✓ ✓
-    -- - vim                 ✓ ✓ ✓ . ✓
-    -- - vimdoc              ✓ . . . ✓
+  -- :checkhealth nvim.treesitter for available parsers
   treesitterConfig.setup({
     ensure_installed = {"lua", "javascript", "python", "tsx", "typescript", "go", "markdown", "markdown_inline"},
     sync_install = false,
