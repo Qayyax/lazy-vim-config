@@ -3,6 +3,11 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
+vim.g.mapleader = " "
+
+-- Key Binds
+vim.keymap.set("i", "jk", "<Esc>", {desc = "jk toggles esc in insert mode"})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -18,11 +23,18 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
 local plugins = {
-  {"catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    name = 'telescope',
+    dependencies = {'nvim-lua/plenary.nvim'}
+  }
 }
 
 require("lazy").setup(plugins, opts)
 
 require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
+
+require("telescope").setup()
 
