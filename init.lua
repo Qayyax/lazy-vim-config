@@ -51,7 +51,7 @@ local plugins = {
   }
 }
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins)
 
 -- Theme & Color scheme related plugs 
 require("catppuccin").setup()
