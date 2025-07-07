@@ -28,7 +28,8 @@ local plugins = {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     name = 'telescope',
     dependencies = {'nvim-lua/plenary.nvim'}
-  }
+  }, 
+  {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build=":TSUpdate"},
 }
 
 require("lazy").setup(plugins, opts)
@@ -43,3 +44,29 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- Tree sitter
+-- available parsers
+  -- - bash                ✓ ✓ ✓ . ✓
+  -- - c                   ✓ ✓ ✓ ✓ ✓
+  -- - cpp                 ✓ ✓ ✓ ✓ ✓
+  -- - go                  ✓ ✓ ✓ ✓ ✓
+  -- - javascript          ✓ ✓ ✓ ✓ ✓
+  -- - lua                 ✓ ✓ ✓ ✓ ✓
+  -- - markdown            ✓ . ✓ ✓ ✓
+  -- - markdown_inline     ✓ . . . ✓
+  -- - python              ✓ ✓ ✓ ✓ ✓
+  -- - query               ✓ ✓ ✓ ✓ ✓
+  -- - rust                ✓ ✓ ✓ ✓ ✓
+  -- - tsx                 ✓ ✓ ✓ ✓ ✓
+  -- - typescript          ✓ ✓ ✓ ✓ ✓
+  -- - vim                 ✓ ✓ ✓ . ✓
+  -- - vimdoc              ✓ . . . ✓
+  local treesitterConfig = require("nvim-treesitter.configs")
+  treesitterConfig.setup({
+    ensure_installed = {"lua", "javascript", "python", "tsx", "typescript", "go", "markdown", "markdown_inline"},
+    sync_install = false,
+    auto_intall = true,
+    highlight = { enable = true },
+    indent = { enable = true }
+  })
