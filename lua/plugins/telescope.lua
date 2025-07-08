@@ -14,7 +14,7 @@ return {
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Telescope quickfix list' })
     end
-  }, 
+  },
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function ()
@@ -30,6 +30,6 @@ return {
       }
       require("telescope").load_extension("ui-select")
     end
-  } 
+  }
 }
 

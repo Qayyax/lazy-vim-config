@@ -10,5 +10,9 @@ return {
       null_ls.builtins.formatting.markdownlint,
     })
 
+    vim.api.nvim_create_autocmd({"BufWriteCmd", "FileAppendCmd", "FileWriteCmd"}, {
+      callback = function() vim.lsp.buf.format() end
+    })
+
   end
 }
