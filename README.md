@@ -254,7 +254,7 @@ vim.keymap.set('n', '<Leader>pl2', function() require('plugin').action() end)
 
 ## AutoCommands
 
-This is a Vim command or Lua function that is autiomatically executed whenever one or more events are triggered, e.g., when a file is read or written, or when a window is created. 
+This is a Vim command or Lua function that is automatically executed whenever one or more events are triggered, e.g., when a file is read or written, or when a window is created. 
 
 Autocommands are created using `vim.api.nvim_create_autocmd()`, which takes two mandatory arguments:
 
