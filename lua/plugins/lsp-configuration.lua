@@ -21,6 +21,7 @@ return {
     config = function()
       --  Docs: https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#vimlspconfig
       vim.lsp.enable("lua_ls")
+      vim.lsp.enable("ts_ls")
 
       -- Keybinds
       -- docs here https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()
