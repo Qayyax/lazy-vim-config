@@ -276,7 +276,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 -- Same autocommand written with a Lua function instead
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = {"*.c", "*.h"},
     command = function() print("Entereing a C or C++ file") end,
 })
