@@ -1,11 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set relativenumber")
-
-vim.g.mapleader = " "
-
 -- Key Binds
 vim.keymap.set("i", "jk", "<Esc>", {desc = "jk toggles esc in insert mode"})
 
@@ -22,7 +14,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("vim-options")
 require("lazy").setup("plugins")
-
-
-
