@@ -17,7 +17,6 @@ return {
     -- add options here
   },
   config = function ()
-    -- Neotree
     local neotree = require("neo-tree")
     neotree.setup({
       event_handlers = {
@@ -32,5 +31,8 @@ return {
         },
       }
     })
+
+    -- Key bindings
+    vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal left<CR>')
   end
 }

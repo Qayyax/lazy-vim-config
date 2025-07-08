@@ -8,7 +8,6 @@ vim.g.mapleader = " "
 
 -- Key Binds
 vim.keymap.set("i", "jk", "<Esc>", {desc = "jk toggles esc in insert mode"})
-vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal left<CR>')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
