@@ -7,19 +7,19 @@ return {
     end
   },
   {
+    -- Docs: https://github.com/mason-org/mason-lspconfig.nvim?tab=readme-ov-file#default-configuration
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
       auto_install = true,
-    }
+      ensure_installed = {"lua_ls", "ts_ls"}
+    },
   },
   {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      -- local lspconfig = require("lspconfig")
-      -- lspconfig.lua_ls.setup({})
-      -- vim.lsp.config("lua_ls", {})
+      --  Docs: https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#vimlspconfig
       vim.lsp.enable("lua_ls")
 
       -- Keybinds
