@@ -10,9 +10,13 @@ return {
       null_ls.builtins.formatting.markdownlint,
     })
 
-    vim.api.nvim_create_autocmd({"BufWriteCmd", "FileAppendCmd", "FileWriteCmd"}, {
-      callback = function() vim.lsp.buf.format() end
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      callback = function()
+        vim.lsp.buf.format({
+          async = false,
+          filter = function(client) return client.name == "null-ls" end
+        })
+      end,
     })
-
   end
 }
