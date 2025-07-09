@@ -12,7 +12,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.prettier,
-				null_ls.builtins.formatting.markdownlint,
+				null_ls.builtins.diagnostics.markdownlint,
 			},
 
 			-- autoformat on save

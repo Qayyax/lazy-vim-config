@@ -15,11 +15,11 @@ Here are some notes that I took from the docs
 - `Ex-commands` - `vim.cmd()`
 - `builtin-functions` - `vim.fn`
 
-**Nvim API** (written in C) functions are accessed through `vim.api` 
+**Nvim API** (written in C) functions are accessed through `vim.api`
 
 **Lua API** (written in Lua) are any other functions accessible through `vim.*` not mentioned already; (I don't know what this means yet)
 
-So this distinctions is important, becuase the API functions inherit behavior from their original layer; 
+So this distinctions is important, becuase the API functions inherit behavior from their original layer;
 
 - Nvim API functions always need all arguments to be specified even if Lua itself allows omitting arguments
 - Vim API functions can use 0-based indexing even if Lua arrays are 1-indexed
@@ -32,7 +32,7 @@ To run luad code from Nvim command line, use the `:lua` command:
 :lua print("Hello!")
 ```
 
-> Each `:lua` command has its own scope and variable declared witht he local keyword are not accessible outside of the command. 
+> Each `:lua` command has its own scope and variable declared witht he local keyword are not accessible outside of the command.
 
 ```bash
 :lua local foo = 1
@@ -46,7 +46,7 @@ To run a lua script in an external file, you can use the `:source` command exact
 :source ~/programs/baz/myluafile.lua
 ```
 
-finally, you can include Lua code in Vimscript file by putting it inside a `:lua-heredoc` block: 
+finally, you can include Lua code in Vimscript file by putting it inside a `:lua-heredoc` block:
 
 ```vim
 lua << EOF
@@ -68,9 +68,9 @@ This should be placed in your `config` directory (run `:echo stdpath('config')` 
 
 ## Lua modules
 
-if you want to load Lua files on demand, you canplace then in the `lua/` directory in your `runtimepath` (in my case ~./config/nvim) and load them with `require`. 
+if you want to load Lua files on demand, you canplace then in the `lua/` directory in your `runtimepath` (in my case ~./config/nvim) and load them with `require`.
 
-Let's assume you have the following directory structure: 
+Let's assume you have the following directory structure:
 
 ```bash
 ~/.config/nvim
@@ -86,7 +86,7 @@ Let's assume you have the following directory structure:
 |-- init.vim
 ```
 
-Then the following Lua code will load `myluamodule.lua`: 
+Then the following Lua code will load `myluamodule.lua`:
 
 ```lua
 require("myluamodule")
@@ -98,21 +98,21 @@ require('other_modules/anothermodule')
 require('other_modules.anothermodule')
 ```
 
-A folder containing `init.lua` file can be required directly, without having to specify the name of the file (kind of like app/page.tsx in Next.js): 
+A folder containing `init.lua` file can be required directly, without having to specify the name of the file (kind of like app/page.tsx in Next.js):
 
 ```lua
 require('other_modules')
 -- This would load other_modules/init.lua
 ```
 
-Requiring a nonexistent module or a module which constains syntax errors abots the currently executing script. 
+Requiring a nonexistent module or a module which constains syntax errors abots the currently executing script.
 `pcall()` may be used to catch such errors. The following example tries to load the `module_with_error` and only calls one of its functions if this succeeds and prints and error message otherwise:
 
 ```lua
 lcoal ok, mymod = pcall(require, 'module_with_error')
 if not ok then
     print("Module had an error")
-else 
+else
     mymod.func()
 end
 ```
@@ -134,7 +134,7 @@ vim.cmd("%s/\\Vfoo/bar/g")
 -- An alternative is to use a literal string delimited by double brackets [[ ]]
 vim.cmd([[%s/\Vfoo/bar/g]]) -- if you don't want to use the \ to escape special characters
 
--- Another benefit of using literal string is that they can be multiple lines; 
+-- Another benefit of using literal string is that they can be multiple lines;
 -- this allows you to pass multiple commands to a single call of vim.cmd()
 vim.cmd([[
     highlight Error guibg=red
@@ -164,7 +164,7 @@ end
 
 vim.fn.jobstart('ls', { on_stdout = print_stdout })
 
--- Note that hashes (#)k are not valid characters for identifiers in Lua, 
+-- Note that hashes (#)k are not valid characters for identifiers in Lua,
 -- e.g., autoload functions have to be called with this syntax:
 vim.fn["my#autoload#funcdtion"]()
 ```
@@ -178,7 +178,7 @@ Variables can be set and read using the following wrappes, which directly corres
 - `vim.w`: variables for the current window (`w:`)
 - `vim.t`: variables for the current tabpage (`t:`)
 - `vim.v`: predefined Vim variables (`v:`)
-- `vim.env`: environment variables defined in the editor session 
+- `vim.env`: environment variables defined in the editor session
 
 ## Options
 
@@ -199,7 +199,7 @@ set smarttab
 set nosmarttab
 ```
 
-are equivalent to 
+are equivalent to
 
 ```lua
 vim.opt.smarttab = true
@@ -238,36 +238,36 @@ Examples:
 vim.keymap.set('n', '<Leader>ex1', '<cmd>echo "Example 1"<cr>')
 -- Normal and Command-line mode mapping for Vim command
 vim.keymap.set({'n', 'c'}, '<Leader>ex1', '<cmd>echo "Example 1"<cr>')
--- Normal mode mapping for Lua function 
+-- Normal mode mapping for Lua function
 vim.keymap.set('n', '<Leader>ex1', vim.treesitter.start)
 -- Normal mode mapping for Lua function with arguments
 vim.keymap.set('n', '<leader>ex4', function() print('Example 4') end)
 
--- MAPPING FUNCTIONS FROM LUA MODULES 
+-- MAPPING FUNCTIONS FROM LUA MODULES
 vim.keymap.set('n', '<leader>pl1', require('plugin').action)
 
 -- note though, this would load the plugin at the time the mapping is defined
--- you can defer the loading to the time when the  mapping is executed by 
+-- you can defer the loading to the time when the  mapping is executed by
 -- wrapping it in function() end:
 vim.keymap.set('n', '<Leader>pl2', function() require('plugin').action() end)
 ```
 
 ## AutoCommands
 
-This is a Vim command or Lua function that is automatically executed whenever one or more events are triggered, e.g., when a file is read or written, or when a window is created. 
+This is a Vim command or Lua function that is automatically executed whenever one or more events are triggered, e.g., when a file is read or written, or when a window is created.
 
 Autocommands are created using `vim.api.nvim_create_autocmd()`, which takes two mandatory arguments:
 
 - `{event}`: a string or table of strings containing the event(s) which should trigger the command or function.
 - `{opts}`: a table with keys that control what should happen when the event(s) are triggered.
 
-The most important **options** are : 
+The most important **options** are :
 
-- `pattern`: A string or table of strings containing the autocomd-patter. 
+- `pattern`: A string or table of strings containing the autocomd-patter.
 - `command`: a string containing a vim command
 - `callback`: A Lua function
 
-You must specify one and only one of `command` and `callback`. if `pattern` is omitted, it defaults to `pattern = '*'` 
+You must specify one and only one of `command` and `callback`. if `pattern` is omitted, it defaults to `pattern = '*'`
 
 ```lua
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
@@ -287,7 +287,3 @@ vim.api.nvim_create_autocmd("User", {
     callback = function() print("My Plugin Works!") end,
 })
 ```
-
-
-
-
