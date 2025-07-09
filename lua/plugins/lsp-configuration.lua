@@ -45,10 +45,16 @@ return {
 			-- lsp related Keybinds
 			-- Docs: https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-			vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
+			vim.keymap.set(
+				"n",
+				"gd",
+				vim.lsp.buf.definition,
+				{ desc = "Show code definitions (where the code has been implemented)" }
+			)
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Show code references" })
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
+			vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { desc = "rename buffer" })
+			vim.keymap.set("n", "<leader>q", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 		end,
 	},
 }
