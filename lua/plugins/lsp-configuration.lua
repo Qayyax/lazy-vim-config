@@ -38,6 +38,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+
 			-- lsp related Keybinds
 			-- Docs: https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
