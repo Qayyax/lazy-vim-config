@@ -7,11 +7,7 @@ vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Configure visual mode indent when pressing >
-vim.keymap.set("x", ">", ">gv", { noremap = true, silent = true })
-
-vim.keymap.set("v", "<leader>y", '"+y', {}) -- copy to clipboard
-
+-- Vim options
 vim.o.hlsearch = false -- removes the highlight after search
 vim.o.mouse = "a" -- enables mouse mode
 vim.o.breakindent = true -- adds equal indenting to code blocks
@@ -31,6 +27,20 @@ vim.o.timeoutlen = 300 -- timeout lenght for mapped key sequences (default = 100
 vim.o.completeopt = "menuone,noselect"
 
 vim.o.termguicolors = true --make sure your terminal support true colors
+
+-- Keymaps
+
+-- Configure visual mode indent when pressing >
+vim.keymap.set("x", ">", ">gv", { noremap = true, silent = true })
+
+vim.keymap.set("v", "<leader>y", '"+y', {}) -- copy to clipboard
+
+-- Disable <space> in normal and visual mode
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Smarter vertical movement with word wrap
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 --  Highlight on yank
 -- See `:help vim.highlight.on_yank()`
