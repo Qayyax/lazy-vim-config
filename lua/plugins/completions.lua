@@ -16,6 +16,7 @@ return {
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
 
+			-- snippets related setup
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -49,6 +50,10 @@ return {
 					{ name = "buffer" },
 				}),
 			})
+
+			-- autopairs config
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			cmp.event:on("confim_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 }
