@@ -14,6 +14,9 @@ return {
 			vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "Telescope buffers" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 			vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Telescope quickfix list" })
+			vim.keymap.set("n", "<leader>/", function()
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({}))
+			end, { desc = "[/] Fuzzily search in current buffer" })
 		end,
 	},
 	{
