@@ -1,6 +1,7 @@
 return {
 	{
-		"hrsh7th/cmp-nvim-lsp", -- I don't know why I have this here though
+		"hrsh7th/cmp-nvim-lsp",
+		-- check lsp-configuration.lua
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -35,6 +36,7 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
 				}, {
 					{ name = "buffer" },
 				}),
