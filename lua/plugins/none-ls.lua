@@ -13,7 +13,6 @@ return {
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.diagnostics.markdownlint,
-				null_ls.builtins.code_actions.textlint,
 			},
 
 			-- autoformat on save
