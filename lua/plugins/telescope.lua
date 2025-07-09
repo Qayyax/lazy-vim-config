@@ -20,7 +20,7 @@ return {
 				builtin.current_buffer_fuzzy_find,
 				{ desc = "[/] Fuzzily search in current buffer" }
 			)
-			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
+			vim.keymap.set("n", "<leader>q", builtin.diagnostics, { desc = "Search Diagnostics" })
 		end,
 	},
 	{
