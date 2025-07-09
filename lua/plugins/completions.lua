@@ -52,6 +52,7 @@ return {
 			})
 
 			-- autopairs config
+			-- Docs: https://github.com/windwp/nvim-autopairs
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			cmp.event:on("confim_done", cmp_autopairs.on_confirm_done())
 		end,
