@@ -2,7 +2,7 @@
 
 This is a Nvim config with Lazy as the package manager.
 
-![Lua for Nvim docs here](https://neovim.io/doc/user/lua-guide.html])
+![Lua for Nvim docs](https://neovim.io/doc/user/lua-guide.html])
 
 ---
 
