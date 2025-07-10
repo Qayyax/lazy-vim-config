@@ -21,6 +21,22 @@ return {
 				{ desc = "[/] Fuzzily search in current buffer" }
 			)
 			vim.keymap.set("n", "<leader>q", builtin.diagnostics, { desc = "Search Diagnostics" })
+
+			-- LSP related
+			vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to definition of word under the cursor" })
+			vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Go to references of word under the cursor" })
+			vim.keymap.set(
+				"n",
+				"gi",
+				builtin.lsp_implementations,
+				{ desc = "Go to implementation of word under the cursor" }
+			)
+			vim.keymap.set(
+				"n",
+				"gt",
+				builtin.lsp_type_definitions,
+				{ desc = "Go to definition of type of the word under the cursor" }
+			)
 		end,
 	},
 	{
