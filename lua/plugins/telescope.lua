@@ -23,6 +23,10 @@ return {
 			vim.keymap.set("n", "<leader>q", builtin.diagnostics, { desc = "Search Diagnostics" })
 
 			-- LSP related
+			vim.keymap.set("n", "<leader>e", function()
+				builtin.diagnostics({ bufnr = 0 })
+			end, { desc = "List Diagnostics for current buffer" })
+
 			vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to definition of word under the cursor" })
 			vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Go to references of word under the cursor" })
 			vim.keymap.set(
