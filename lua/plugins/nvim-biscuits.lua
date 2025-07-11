@@ -10,5 +10,6 @@ return {
 		-- Docs for the events: https://vimdoc.sourceforge.net/htmldoc/autocmd.html#autocmd-events
 		on_events = { "InsertLeave" },
 		toggle_keybind = "<leader>sb", -- show biscuits
+		cursor_line_only = true,
 	},
 }
