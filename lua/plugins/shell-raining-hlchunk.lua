@@ -5,12 +5,9 @@ return {
 		require("hlchunk").setup({
 			line_num = {
 				enable = true,
-				style = "#806d9c",
+				style = "#fae40f",
 				priority = 10,
 				use_treesitter = true,
-				chars = {
-					vertical_line = "|",
-				},
 			},
 		})
 	end,
