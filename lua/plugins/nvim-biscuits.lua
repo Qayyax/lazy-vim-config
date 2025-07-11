@@ -6,5 +6,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	},
-	opts = {},
+	opts = {
+		-- Docs for the events: https://vimdoc.sourceforge.net/htmldoc/autocmd.html#autocmd-events
+		on_events = { "InsertLeave" },
+		toggle_keybind = "<leader>sb", -- show biscuits
+	},
 }
