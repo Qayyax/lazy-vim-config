@@ -4,7 +4,7 @@ return {
 	event = "InsertEnter",
 	opts = {
 		enable_check_bracket_line = false,
-		fast_wrap = {},
+		fast_wrap = {}, -- <M-e>
 	},
 	config = true,
 }
