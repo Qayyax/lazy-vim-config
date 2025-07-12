@@ -45,6 +45,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- C-w map to <leader> (Navigation - spliting panes)
 vim.keymap.set("n", "<leader>v", "<C-w>v", {}) -- split window vertically
 vim.keymap.set("n", "<leader>s", "<C-w>s", {}) -- split window horizontally
+vim.keymap.set("n", "<leader>=", "<C-w>=", {}) -- split window evenly
 vim.keymap.set("n", "<leader><space>q", "<C-w>q", {}) -- close window
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", {}) -- navigate to top window
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", {}) -- navigate to bottom window
