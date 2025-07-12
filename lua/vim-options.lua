@@ -43,13 +43,13 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- C-w map to <leader> (Navigation - spliting panes)
-vim.keymap.set("n", "<leader>v", "<C-w>v", {})
-vim.keymap.set("n", "<leader>s", "<C-w>s", {})
-vim.keymap.set("n", "<leader><space>q", "<C-w>q", {})
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", {})
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", {})
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", {})
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", {})
+vim.keymap.set("n", "<leader>v", "<C-w>v", {}) -- split window vertically
+vim.keymap.set("n", "<leader>s", "<C-w>s", {}) -- split window horizontally
+vim.keymap.set("n", "<leader><space>q", "<C-w>q", {}) -- close window
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", {}) -- navigate to top window
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", {}) -- navigate to bottom window
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", {}) -- navigate to right window
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", {}) -- navigate to left window
 
 --  Highlight on yank
 -- See `:help vim.highlight.on_yank()`
