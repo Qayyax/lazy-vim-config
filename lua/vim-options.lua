@@ -45,6 +45,11 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- C-w map to <leader> (Navigation - spliting panes)
 vim.keymap.set("n", "<leader>v", "<C-w>v", {})
 vim.keymap.set("n", "<leader>s", "<C-w>s", {})
+vim.keymap.set("n", "<leader><space>q", "<C-w>q", {})
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", {})
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", {})
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", {})
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", {})
 
 --  Highlight on yank
 -- See `:help vim.highlight.on_yank()`
