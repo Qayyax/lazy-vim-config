@@ -1,3 +1,4 @@
+-- Doc:  https://github.com/shellRaining/hlchunk.nvim
 return {
 	"shellRaining/hlchunk.nvim",
 	event = { "BufReadPre", "BufNewFile" },
