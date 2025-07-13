@@ -25,8 +25,8 @@ return {
 				},
 				shortcut = {
 					{
-						icon = "🔥 ",
-						desc = "Qayyax Zone",
+						icon = " ",
+						desc = "Show your files",
 						group = "Label",
 						action = "Telescope find_files",
 						key = "f",
