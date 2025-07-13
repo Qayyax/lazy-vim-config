@@ -46,6 +46,9 @@ return {
 						key = "u",
 					},
 				},
+				project = {
+					enable = false,
+				},
 				mru = {
 					enable = true,
 					limit = 10,
