@@ -6,13 +6,14 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha",
+			flavour = "macchiato",
 			background = {
-				dark = "mocha",
+				dark = "macchiato",
 			},
 			no_italic = false,
 			no_bold = false,
 			transparent_background = true,
+			neotree = true,
 			styles = {
 				comments = { "italic" },
 				conditionals = { "italic" },
