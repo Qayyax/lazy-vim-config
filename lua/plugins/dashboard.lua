@@ -49,6 +49,7 @@ return {
 				project = {
 					enable = false,
 				},
+				packages = { enable = false },
 				mru = {
 					enable = true,
 					limit = 10,
