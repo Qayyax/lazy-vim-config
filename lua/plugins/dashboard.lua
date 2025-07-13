@@ -46,6 +46,13 @@ return {
 						key = "u",
 					},
 				},
+				mru = {
+					enable = true,
+					limit = 10,
+					icon = "🤔 ",
+					label = "You were just here bruv",
+					cwd_only = false,
+				},
 				footer = {
 					" ",
 					"Next millionaire - Tife and Fuad",
