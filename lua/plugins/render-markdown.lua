@@ -4,6 +4,5 @@ return {
 	---@module 'render-markdown'
 	opts = {
 		completions = { lsp = { enabled = true } },
-		only_render_image_at_cursor = true,
 	},
 }
