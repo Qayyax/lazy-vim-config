@@ -19,10 +19,37 @@ return {
 					'     "You miss 100% of the shots you don\'t take."',
 					"      — Wayne Gretzky",
 					"      — Michael Scott",
+					"  ",
+					"  ",
+					"  ",
 				},
-				-- week_header = {
-				-- 	enable = true,
-				-- },
+				shortcut = {
+					{
+						icon = "🔥 ",
+						desc = "Qayyax Zone",
+						group = "Label",
+						action = "Telescope find_files",
+						key = "f",
+					},
+					{
+						icon = " ",
+						desc = "Nvim Settings",
+						group = "Label",
+						action = "e ~/.config/nvim/init.lua",
+						key = "s",
+					},
+					{
+						icon = "🤫 ",
+						desc = "Update Plugins",
+						group = "Label",
+						action = "Lazy update",
+						key = "u",
+					},
+				},
+				footer = {
+					" ",
+					"Next millionaire - Tife and Fuad",
+				},
 			},
 		})
 	end,
