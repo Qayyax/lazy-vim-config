@@ -8,9 +8,21 @@ return {
 			shortcut_type = "letter",
 			shuffle_letter = true,
 			config = {
-				week_header = {
-					enable = true,
+				header = {
+					" ██████╗  █████╗ ██╗   ██╗██╗   ██╗ █████╗ ██╗  ██╗",
+					"██╔═══██╗██╔══██╗╚██╗ ██╔╝╚██╗ ██╔╝██╔══██╗╚██╗██╔╝",
+					"██║   ██║███████║ ╚████╔╝  ╚████╔╝ ███████║ ╚███╔╝ ",
+					"██║▄▄ ██║██╔══██║  ╚██╔╝    ╚██╔╝  ██╔══██║ ██╔██╗ ",
+					"╚██████╔╝██║  ██║   ██║      ██║   ██║  ██║██╔╝ ██╗",
+					" ╚══▀▀═╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝",
+					"",
+					'     "You miss 100% of the shots you don\'t take."',
+					"      — Wayne Gretzky",
+					"      — Michael Scott",
 				},
+				-- week_header = {
+				-- 	enable = true,
+				-- },
 			},
 		})
 	end,
