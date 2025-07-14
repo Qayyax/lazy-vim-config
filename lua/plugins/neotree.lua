@@ -1,39 +1,40 @@
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
-return {
-	"nvim-neo-tree/neo-tree.nvim",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-		"MunifTanjim/nui.nvim",
-		"folke/snacks.nvim",
-	},
-	lazy = false,
-
-	config = function()
-		local neotree = require("neo-tree")
-		neotree.setup({
-			event_handlers = {
-				{
-					event = "file_opened",
-					handler = function(file_path)
-						require("neo-tree.command").execute({ action = "close" })
-					end,
-				},
-			},
-			window = {
-				mappings = {
-					["P"] = {
-						"toggle_preview",
-						config = {
-							use_float = false,
-						},
-					},
-				},
-			},
-		})
-
-		-- Key bindings
-		vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal float<CR>")
-		vim.keymap.set("n", "<leader>gs", ":Neotree float git_status<CR>")
-	end,
-}
+-- return {
+-- 	"nvim-neo-tree/neo-tree.nvim",
+-- 	dependencies = {
+-- 		"nvim-lua/plenary.nvim",
+-- 		"nvim-tree/nvim-web-devicons",
+-- 		"MunifTanjim/nui.nvim",
+-- 		"folke/snacks.nvim",
+-- 	},
+-- 	lazy = false,
+--
+-- 	config = function()
+-- 		local neotree = require("neo-tree")
+-- 		neotree.setup({
+-- 			event_handlers = {
+-- 				{
+-- 					event = "file_opened",
+-- 					handler = function(file_path)
+-- 						require("neo-tree.command").execute({ action = "close" })
+-- 					end,
+-- 				},
+-- 			},
+-- 			window = {
+-- 				mappings = {
+-- 					["P"] = {
+-- 						"toggle_preview",
+-- 						config = {
+-- 							use_float = false,
+-- 						},
+-- 					},
+-- 				},
+-- 			},
+-- 		})
+--
+-- 		-- Key bindings
+-- 		vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal float<CR>")
+-- 		vim.keymap.set("n", "<leader>gs", ":Neotree float git_status<CR>")
+-- 	end,
+-- }
+return {}
