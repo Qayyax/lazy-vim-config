@@ -8,19 +8,7 @@ return {
 		bufdelete = { enabled = true },
 		dashboard = require("plugins.snacks.dashboard"),
 		explorer = { enabled = true, { replace_netrw = true } },
-		picker = {
-			enabled = true,
-			ui_select = true,
-			sources = {
-				explorer = {
-					auto_close = true,
-					layout = {
-						preset = "default",
-						preview = true,
-					},
-				},
-			},
-		},
+		picker = require("plugins.snacks.picker"),
 		indent = { enabled = true },
 		git = { enabled = true },
 		gitbrowse = { enabled = true },
