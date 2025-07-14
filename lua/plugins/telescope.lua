@@ -43,20 +43,20 @@ return {
 		-- 	)
 		-- end,
 	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			-- Docs: https://github.com/nvim-telescope/telescope-ui-select.nvim
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({
-							windblend = 10,
-						}),
-					},
-				},
-			})
-			require("telescope").load_extension("ui-select")
-		end,
-	},
+	-- {
+	-- 	"nvim-telescope/telescope-ui-select.nvim",
+	-- 	config = function()
+	-- 		-- Docs: https://github.com/nvim-telescope/telescope-ui-select.nvim
+	-- 		require("telescope").setup({
+	-- 			extensions = {
+	-- 				["ui-select"] = {
+	-- 					require("telescope.themes").get_dropdown({
+	-- 						windblend = 10,
+	-- 					}),
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 		require("telescope").load_extension("ui-select")
+	-- 	end,
+	-- },
 }
