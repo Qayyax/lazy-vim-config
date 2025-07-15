@@ -89,6 +89,8 @@ return {
 		desc = "Git Diff (Hunks)",
 	},
 
+	-- Lazy git
+
 	-- Grep
 	{
 		"<leader>/",
