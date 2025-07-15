@@ -4,6 +4,8 @@ This is a Nvim config with Lazy as the package manager.
 
 ![Lua for Nvim docs](https://neovim.io/doc/user/lua-guide.html])
 
+Checkout out [keymaps.md](keymaps.md) for my keymaps
+
 ---
 
 Here are some notes that I took from the docs
