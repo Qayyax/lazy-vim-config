@@ -41,9 +41,29 @@ return {
 ╚██████╔╝██║  ██║   ██║      ██║   ██║  ██║██╔╝ ██╗
  ╚══▀▀═╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
 
-     "You miss 100% of the shots you don't take"
-      — Wayne Gretzky
-      — Michael Scott
+"You miss 100% of the shots you don't take"
+  — Wayne Gretzky
+  — Michael Scott
       ]],
+		footer = "Next Millionaire - Tife and Fuad",
+	},
+	sections = {
+		{ section = "header", align = "center" },
+		{ icon = " ", title = "Recent Files", section = "recent_files", padding = 1 },
+		{ icon = " ", title = "Projects", section = "projects", padding = 1 },
+		{
+			icon = " ",
+			title = "Git Status",
+			section = "terminal",
+			enabled = function()
+				return Snacks.git.get_root() ~= nil
+			end,
+			cmd = "git status --short --branch --renames",
+			height = 3,
+			padding = 1,
+			ttl = 5 * 60,
+		},
+		{ section = "keys", gap = 1, padding = 1 },
+		{ section = "startup" },
 	},
 }
