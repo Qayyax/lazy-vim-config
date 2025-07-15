@@ -90,17 +90,24 @@ return {
 	},
 
 	-- Lazy git
+	{
+		"<leader>lg",
+		function()
+			Snacks.lazygit()
+		end,
+		desc = "Open lazy git",
+	},
 
 	-- Grep
 	{
-		"<leader>/",
+		"<leader>fg",
 		function()
 			Snacks.picker.grep()
 		end,
 		desc = "Grep",
 	},
 	{
-		"<leader>/b",
+		"<leader>/",
 		function()
 			Snacks.picker.lines()
 		end,
