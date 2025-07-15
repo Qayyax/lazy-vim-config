@@ -22,6 +22,7 @@ return {
 		win = { enabled = true },
 		words = { enabled = true },
 		statuscolumn = { enabled = true },
+		terminal = { enabled = true, win = { style = "terminal" } },
 	},
 	keys = require("plugins.snacks.key"),
 }

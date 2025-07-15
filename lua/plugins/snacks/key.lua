@@ -265,4 +265,20 @@ return {
 		end,
 		desc = "Goto [t]ype Definition",
 	},
+
+	-- Terminal
+	{
+		"<leader>tt",
+		function()
+			Snacks.terminal.toggle(nil, {
+				win = {
+					position = "float",
+					width = 0.5,
+					height = 0.2,
+					border = "rounded",
+				},
+			})
+		end,
+		desc = "Toggle terminal",
+	},
 }
