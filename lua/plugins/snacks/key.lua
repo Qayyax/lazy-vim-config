@@ -222,7 +222,7 @@ return {
 		desc = "Undo History",
 	},
 	{
-		"<leader>uC",
+		"<leader>cs",
 		function()
 			Snacks.picker.colorschemes()
 		end,

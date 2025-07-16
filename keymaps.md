@@ -187,7 +187,7 @@
 
 | Keymap       | Action       | Description                    |
 | ------------ | ------------ | ------------------------------ |
-| `<leader>uC` | Colorschemes | Browse and switch colorschemes |
+| `<leader>cs` | Colorschemes | Browse and switch colorschemes |
 
 ## Dashboard Shortcuts
 
