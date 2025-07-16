@@ -1,13 +1,9 @@
 return {
 	"folke/todo-comments.nvim",
-	optional = true,
-	keys = {
-		{
-			"<leader>td",
-			function()
-				Snacks.picker.todo_comments({ keywords = { "Todo", "TODO", "FIX", "FIXME" } })
-			end,
-			desc = "Todo/Fix/Fixme",
-		},
-	},
+	dependencies = { "nvim-lua/plenary.nvim" },
+	opts = {},
+	vim.keymap.set("n", "<leader>t", ":TodoTelescope<CR>"),
+
+	-- keywords are:
+	-- TODO, HACK, WARN, PERF, NOTE, TEST
 }
