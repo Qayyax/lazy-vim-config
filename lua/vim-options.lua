@@ -28,6 +28,11 @@ vim.o.completeopt = "menuone,noselect"
 
 vim.o.termguicolors = true --make sure your terminal support true colors
 
+-- Vim fold
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- uses tree sitter
+vim.o.foldlevel = 99 -- Start with all folds open
+
 -- Keymaps
 
 -- Configure visual mode indent when pressing >

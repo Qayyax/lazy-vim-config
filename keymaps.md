@@ -205,6 +205,29 @@
 | `u` | Update Lazy     | Update all plugins       |
 | `q` | Quit            | Quit Neovim              |
 
+## Code Folding
+
+### Fold Management
+
+| Keymap | Action      | Description               |
+| ------ | ----------- | ------------------------- |
+| `za`   | Toggle Fold | Toggle fold under cursor  |
+| `zc`   | Close Fold  | Close fold under cursor   |
+| `zo`   | Open Fold   | Open fold under cursor    |
+| `zR`   | Open All    | Open all folds in buffer  |
+| `zM`   | Close All   | Close all folds in buffer |
+| `zf`   | Create Fold | Create fold for selection |
+| `zd`   | Delete Fold | Delete fold under cursor  |
+
+### Fold Navigation
+
+| Keymap | Action        | Description                   |
+| ------ | ------------- | ----------------------------- |
+| `zj`   | Next Fold     | Move to next fold             |
+| `zk`   | Previous Fold | Move to previous fold         |
+| `[z`   | Fold Start    | Move to start of current fold |
+| `]z`   | Fold End      | Move to end of current fold   |
+
 ## Notes
 
 - **Leader key** is set to Space (`<space>`)
