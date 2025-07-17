@@ -20,7 +20,7 @@ vim.o.smartcase = true
 vim.wo.signcolumn = "yes" -- signs like git signs and diagnostics should not disturb display
 
 vim.o.updatetime = 250 -- faster reaction to events (default = 1000)
--- vim.o.timeoutlen = 300 -- timeout lenght for mapped key sequences (default = 1000)
+vim.o.timeoutlen = 500 -- timeout lenght for mapped key sequences (default = 1000)
 
 -- `menuone`: autocomplete menu even if there's only one match
 -- `noselect`: don't pre-select any item by default
