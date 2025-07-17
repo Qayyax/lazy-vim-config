@@ -20,7 +20,7 @@ return {
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		win = { enabled = true },
-		statuscolumn = { enabled = true },
+		statuscolumn = require("plugins.snacks.statuscolumn"),
 		terminal = { enabled = true, win = { style = "terminal" } },
 	},
 	keys = require("plugins.snacks.key"),
