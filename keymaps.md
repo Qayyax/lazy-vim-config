@@ -37,7 +37,7 @@
 | Keymap      | Action   | Description               |
 | ----------- | -------- | ------------------------- |
 | `<leader>v` | `<C-w>v` | Split window vertically   |
-| `<leader>-` | `<C-w>s` | Split window horizontally |
+| `<leader>s` | `<C-w>s` | Split window horizontally |
 | `<leader>=` | `<C-w>=` | Split windows evenly      |
 | `<leader>x` | `<C-w>q` | Close current window      |
 
