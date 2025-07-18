@@ -14,6 +14,6 @@ return {
 		local tokyonight = require("tokyonight")
 		tokyonight.setup(opts)
 		tokyonight.load()
-		vim.cmd.colorscheme("tokyonight")
+		-- vim.cmd.colorscheme("tokyonight")
 	end,
 }
