@@ -1,3 +1,0 @@
--- something here
-return {
-}
