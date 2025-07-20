@@ -1,9 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set relativenumber")
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -13,6 +7,11 @@ vim.o.hlsearch = false -- removes the highlight after search
 vim.o.mouse = "a" -- enables mouse mode
 vim.o.breakindent = true -- adds equal indenting to code blocks
 vim.o.undofile = true -- saves undo history (especially after you close the file)
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.relativenumber = true
 
 -- Case-insensitive search UNLESS \C or capital in search
 vim.o.ignorecase = true
