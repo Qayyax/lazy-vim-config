@@ -19,7 +19,7 @@ return {
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },
-		win = { enabled = true },
+		win = { enabled = true, wo = { wrap = true } },
 		statuscolumn = require("plugins.snacks.statuscolumn"),
 		terminal = { enabled = true, win = { style = "terminal" } },
 	},
