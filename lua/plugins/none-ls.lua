@@ -14,7 +14,9 @@ return {
 				null_ls.builtins.formatting.isort,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.markdownlint,
-				null_ls.builtins.formatting.swiftformat,
+				null_ls.builtins.formatting.swiftformat.with({
+					extra_args = { "--commas", "never" },
+				}),
 				null_ls.builtins.diagnostics.swiftlint,
 			},
 
