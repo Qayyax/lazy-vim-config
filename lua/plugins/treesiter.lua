@@ -8,7 +8,23 @@ return {
 		local treesitterConfig = require("nvim-treesitter.configs")
 		-- :checkhealth nvim.treesitter for available parsers
 		treesitterConfig.setup({
-			ensure_installed = { "lua", "javascript", "python", "tsx", "typescript", "markdown", "markdown_inline" },
+			ensure_installed = {
+				"lua",
+				"javascript",
+				"python",
+				"tsx",
+				"typescript",
+				"markdown",
+				"markdown_inline",
+				"latex",
+				"css",
+				"html",
+				"norg",
+				"scss",
+				"svelte",
+				"typst",
+				"vue",
+			},
 			sync_install = false,
 			auto_intall = true,
 			highlight = { enable = true },

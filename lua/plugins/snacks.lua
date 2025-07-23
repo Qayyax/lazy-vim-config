@@ -11,6 +11,7 @@ return {
 		picker = require("plugins.snacks.picker"),
 		indent = { enabled = true },
 		git = { enabled = true },
+		image = { enabled = true, doc = { inline = false } },
 		lazygit = { enabled = true },
 		gitbrowse = { enabled = true },
 		input = { enabled = true },
