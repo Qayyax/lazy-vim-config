@@ -23,6 +23,7 @@ return {
 			--  Docs: https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#vimlspconfig
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("sourcekit-lsp")
 
 			-- to link autocompletion to lsps
 			-- check completions.lua
@@ -39,6 +40,10 @@ return {
 			})
 
 			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.sourcekit.setup({
 				capabilities = capabilities,
 			})
 
