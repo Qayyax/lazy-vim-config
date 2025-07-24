@@ -8,13 +8,8 @@ return {
 			position = "inline",
 		},
 		code = {
-			backgrounds = { "RenderMarkdownHdNoBg" },
-			position = "left",
-			style = "language",
-			border = "hide",
-			above = "",
-			below = "",
-			conceal_delimeters = true,
+			enabled = false,
+			inline = false,
 		},
 		callout = {
 			note = { highlight = "RenderMarkdownHdNoBg" },
@@ -26,9 +21,5 @@ return {
 		quote = {
 			highlight = "RenderMarkdownHdNoBg",
 		},
-		-- Turn off sign backgrounds if you want
-		-- sign = {
-		-- 	enabled = false,
-		-- },
 	},
 }
