@@ -10,13 +10,13 @@ return {
 			background = {
 				dark = "macchiato",
 			},
-			no_italic = false,
-			no_bold = false,
 			transparent_background = true,
 			neotree = true,
 			styles = {
 				comments = { "italic" },
 				conditionals = { "italic" },
+				functions = { "bold" },
+				operators = { "bold" },
 			},
 		})
 		vim.cmd.colorscheme("catppuccin")

@@ -177,9 +177,9 @@
 
 ### Todo Management
 
-| Keymap      | Action         | Description                    |
-| ----------- | -------------- | ------------------------------ |
-| `<leader>t` | Todo/Fix/Fixme | Find TODO, FIX, FIXME comments |
+| Keymap       | Action         | Description                    |
+| ------------ | -------------- | ------------------------------ |
+| `<leader>tl` | Todo/Fix/Fixme | Find TODO, FIX, FIXME comments |
 
 ## Theme & UI
 
