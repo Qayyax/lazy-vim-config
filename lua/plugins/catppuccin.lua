@@ -15,9 +15,14 @@ return {
 			styles = {
 				comments = { "italic" },
 				conditionals = { "italic" },
-				functions = { "bold" },
 				operators = { "bold" },
+				functions = { "italic" },
 			},
+			custom_highlights = function(colors)
+				return {
+					Comment = { fg = colors.flamingo },
+				}
+			end,
 		})
 		vim.cmd.colorscheme("catppuccin")
 	end,

@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("i", "jk", "<Esc>", { desc = "jk toggles esc in insert mode" })
 -- Vim options
 vim.o.hlsearch = false -- removes the highlight after search
 vim.o.mouse = "a" -- enables mouse mode
@@ -34,6 +33,7 @@ vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99 -- Start with all folds open
 
 -- Keymaps
+vim.keymap.set("i", "jk", "<Esc>", { desc = "jk toggles esc in insert mode" })
 
 -- Configure visual mode indent when pressing >
 vim.keymap.set("x", ">", ">gv", { noremap = true, silent = true })
