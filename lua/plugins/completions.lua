@@ -43,6 +43,13 @@ return {
 							fallback()
 						end
 					end,
+					["<S-tab>"] = function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						else
+							fallback()
+						end
+					end,
 				}),
 				sources = cmp.config.sources({
 					{ name = "luasnip" },

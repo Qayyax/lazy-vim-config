@@ -29,6 +29,16 @@ return {
 			-- check completions.lua
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			-- to watch for files change
+			-- wiki: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
+			local sourcekit_capabilities = vim.tbl_deep_extend("force", {}, capabilities, {
+				workspace = {
+					didChangeWatchedFiles = {
+						dynamicRegistration = true,
+					},
+				},
+			})
+
 			local lspconfig = require("lspconfig")
 			-- use the lsps we have enabled
 			lspconfig.ts_ls.setup({
@@ -44,7 +54,7 @@ return {
 			})
 
 			lspconfig.sourcekit.setup({
-				capabilities = capabilities,
+				capabilities = sourcekit_capabilities,
 			})
 
 			-- lsp related Keybinds
