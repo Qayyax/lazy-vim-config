@@ -20,7 +20,7 @@ return {
 			},
 			custom_highlights = function(colors)
 				return {
-					Comment = { fg = colors.flamingo },
+					Comment = { fg = colors.flamingo, bg = "#2a203f" },
 				}
 			end,
 		})
