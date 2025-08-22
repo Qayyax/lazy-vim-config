@@ -10,7 +10,7 @@ return {
 			background = {
 				dark = "macchiato",
 			},
-			transparent_background = true,
+			transparent_background = false,
 			neotree = true,
 			styles = {
 				comments = { "italic" },
