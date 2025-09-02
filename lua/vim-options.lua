@@ -68,3 +68,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
+
+-- Terminal mode in nvim
+-- Map jk to escape from terminal insert mode
+vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
