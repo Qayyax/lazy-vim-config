@@ -15,8 +15,6 @@ return {
 			styles = {
 				comments = { "italic" },
 				conditionals = { "italic" },
-				operators = { "bold" },
-				functions = { "bold" },
 			},
 			custom_highlights = function(colors)
 				return {
