@@ -8,7 +8,7 @@ return {
 			options = {
 				style_preset = bufferline.style_preset.minimal,
 				diagnostics = "nivm_lsp",
-				separator_style = "slope",
+				-- separator_style = "slope",
 				numbers = "ordinal",
 				indicator = {
 					style = "underline",
