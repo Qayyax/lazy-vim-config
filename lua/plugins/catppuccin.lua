@@ -3,7 +3,8 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	priority = 1000,
+	lazy = true, -- remove when needed
+	priority = 900, -- change to 1000 when needed
 	config = function()
 		require("catppuccin").setup({
 			flavour = "macchiato",
