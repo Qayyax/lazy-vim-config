@@ -228,6 +228,13 @@
 | `[z`   | Fold Start    | Move to start of current fold |
 | `]z`   | Fold End      | Move to end of current fold   |
 
+### BufferLine
+
+| Keymap       | Action                | Description                                    |
+| ------------ | --------------------- | ---------------------------------------------- |
+| `<leader>tp` | BufferLineTogglePin   | Toggles Pin for Buffer line                    |
+| `<leader>bb` | BufferLineGotToBuffer | Receives buffer number and goes to that buffer |
+
 ## Notes
 
 - **Leader key** is set to Space (`<space>`)

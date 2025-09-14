@@ -30,4 +30,5 @@ return {
 
 	-- pin buffer
 	vim.keymap.set("n", "<leader>tp", ":BufferLineTogglePin<CR>"),
+	vim.keymap.set("n", "<leader>bb", ":BufferLineGoToBuffer "),
 }
