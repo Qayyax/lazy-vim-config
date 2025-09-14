@@ -5,19 +5,24 @@ return {
 	config = function()
 		local bufferline = require("bufferline")
 		bufferline.setup({
-			style_preset = bufferline.style_preset.minimal,
-			diagnostics = "nivm_lsp",
-			separator_style = "slant",
-			numbers = "ordinal",
-			groups = {
-				items = {
-					require("bufferline.groups").builtin.pinned:with({ icon = "󰐃 " }),
+			options = {
+				style_preset = bufferline.style_preset.minimal,
+				diagnostics = "nivm_lsp",
+				separator_style = { "", "]" },
+				numbers = "ordinal",
+				indicator = {
+					style = "underline",
 				},
-			},
-			highlights = {
-				buffer_selected = {
-					bold = true,
-					italic = true,
+				groups = {
+					items = {
+						require("bufferline.groups").builtin.pinned:with({ icon = "󰐃 " }),
+					},
+				},
+				highlights = {
+					buffer_selected = {
+						bold = true,
+						italic = true,
+					},
 				},
 			},
 		})
