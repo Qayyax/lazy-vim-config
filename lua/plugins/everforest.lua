@@ -3,7 +3,7 @@ return {
 	"neanias/everforest-nvim",
 	version = false,
 	lazy = true,
-	priority = 900, -- change to 1000 when needed
+	priority = 1000,
 	config = function()
 		require("everforest").setup({
 			background = "hard",

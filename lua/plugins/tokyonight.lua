@@ -1,7 +1,7 @@
 return {
 	"folke/tokyonight.nvim",
 	lazy = true, -- change to false when needed
-	priority = 900, -- change to 900 when needed
+	priority = 1000,
 	opts = {
 		style = "night",
 		-- transparent = true,

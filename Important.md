@@ -3,7 +3,7 @@
 ### Theme related
 
 Since I have multiple themes installed, I had the issue of any of the themes loading at random when I open a new NeoVim instace.  
-Which is why in the configs related to themes you would see that I set `lazy = true` and `priority = [any number less than 1000]`
+Which is why in the configs related to themes you would see that I set `lazy = true`
 Then the theme I am currently using is then set to the default with
 
 ```lua
