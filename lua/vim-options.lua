@@ -72,4 +72,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Terminal mode in nvim
 -- Map jk to escape from terminal insert mode
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+-- vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
