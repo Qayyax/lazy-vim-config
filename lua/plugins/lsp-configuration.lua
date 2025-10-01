@@ -23,25 +23,10 @@ return {
 			--  Docs: https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#vimlspconfig
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("ts_ls")
+
 			vim.lsp.enable("sourcekit")
 
 			-- to link autocompletion to lsps check completions.lua
-
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			-- to watch for files change
-			-- wiki: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
-			-- local sourcekit_capabilities = vim.tbl_deep_extend("force", {}, capabilities, {
-			-- 	workspace = {
-			-- 		didChangeWatchedFiles = {
-			-- 			dynamicRegistration = true,
-			-- 		},
-			-- 	},
-			-- })
-
-			-- lspconfig.sourcekit.setup({
-			-- 	capabilities = sourcekit_capabilities,
-			-- })
 
 			-- lsp related Keybinds
 			-- Docs: https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()
