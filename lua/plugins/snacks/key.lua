@@ -270,7 +270,7 @@ return {
 	{
 		"<leader>tt",
 		function()
-			Snacks.terminal.toggle()
+			Snacks.terminal()
 		end,
 		desc = "Toggle terminal",
 	},
