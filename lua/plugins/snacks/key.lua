@@ -270,14 +270,7 @@ return {
 	{
 		"<leader>tt",
 		function()
-			Snacks.terminal.toggle(nil, {
-				win = {
-					position = "float",
-					width = 0.5,
-					height = 0.2,
-					border = "rounded",
-				},
-			})
+			Snacks.terminal.toggle()
 		end,
 		desc = "Toggle terminal",
 	},
