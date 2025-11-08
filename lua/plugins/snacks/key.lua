@@ -265,20 +265,4 @@ return {
 		end,
 		desc = "Goto [t]ype Definition",
 	},
-
-	-- Terminal
-	{
-		"<leader>tt",
-		function()
-			Snacks.terminal()
-		end,
-		desc = "Toggle terminal",
-	},
-	{
-		"<leader>to",
-		function()
-			Snacks.terminal.open()
-		end,
-		desc = "Open a new Terminal Window",
-	},
 }

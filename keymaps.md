@@ -61,10 +61,11 @@
 
 ### Terminal Management
 
-| Keymap       | Action          | Description                  |
-| ------------ | --------------- | ---------------------------- |
-| `<leader>tt` | Toggle Terminal | Open/close floating terminal |
-| `<leader>to` | Open Terminal   | Open floating terminal       |
+| Keymap       | Action                          | Description                                |
+| ------------ | ------------------------------- | ------------------------------------------ |
+| `<leader>tt` | Opens Terminal                  | Open terminal window takes number argument |
+| `<leader>ta` | Toggles open/close all terminal | Open floating terminal                     |
+| `<leader>tn` | Set terminal name               | Open floating terminal                     |
 
 ### Terminal Escape
 
