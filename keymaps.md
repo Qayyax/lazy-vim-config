@@ -64,12 +64,13 @@
 | Keymap       | Action          | Description                  |
 | ------------ | --------------- | ---------------------------- |
 | `<leader>tt` | Toggle Terminal | Open/close floating terminal |
+| `<leader>to` | Open Terminal   | Open floating terminal       |
 
 ### Terminal Escape
 
-| Keymap | Action         | Description                     |
-| ------ | -------------- | ------------------------------- |
-| `jk`   | `<C-\><C-n>` | Leave terminal insert mode     |
+| Keymap | Action       | Description                |
+| ------ | ------------ | -------------------------- |
+| `jk`   | `<C-\><C-n>` | Leave terminal insert mode |
 
 ## File & Buffer Management
 
@@ -226,22 +227,22 @@
 
 ## Bufferline
 
-| Keymap       | Action                | Description                                    |
-| ------------ | --------------------- | ---------------------------------------------- |
-| `<leader>tp` | BufferLineTogglePin   | Toggle pin for buffer line                     |
-| `<leader>bb` | BufferLineGoToBuffer  | Prompt for buffer number and go to that buffer |
+| Keymap       | Action               | Description                                    |
+| ------------ | -------------------- | ---------------------------------------------- |
+| `<leader>tp` | BufferLineTogglePin  | Toggle pin for buffer line                     |
+| `<leader>bb` | BufferLineGoToBuffer | Prompt for buffer number and go to that buffer |
 
 ## Sidekick
 
 ### Sidekick Controls
 
-| Keymap       | Action                 | Description                                             |
-| ------------ | ---------------------- | ------------------------------------------------------- |
-| `<Tab>`      | Next Edit Suggestion   | Jump to next Sidekick edit suggestion (falls back to Tab) |
-| `<C-.>`      | Focus Sidekick CLI     | Focus the Sidekick CLI window (works in all modes)      |
-| `<leader>aa` | Toggle Sidekick CLI    | Open or close the Sidekick CLI (normal/visual modes)    |
-| `<leader>as` | Select Sidekick Tool   | Choose a Sidekick tool profile (normal/visual modes)    |
-| `<leader>ap` | Prompt Sidekick        | Send the current selection or input to Sidekick         |
+| Keymap       | Action               | Description                                               |
+| ------------ | -------------------- | --------------------------------------------------------- |
+| `<Tab>`      | Next Edit Suggestion | Jump to next Sidekick edit suggestion (falls back to Tab) |
+| `<C-.>`      | Focus Sidekick CLI   | Focus the Sidekick CLI window (works in all modes)        |
+| `<leader>aa` | Toggle Sidekick CLI  | Open or close the Sidekick CLI (normal/visual modes)      |
+| `<leader>as` | Select Sidekick Tool | Choose a Sidekick tool profile (normal/visual modes)      |
+| `<leader>ap` | Prompt Sidekick      | Send the current selection or input to Sidekick           |
 
 ## Notes
 
