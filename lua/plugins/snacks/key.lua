@@ -275,13 +275,6 @@ return {
 		desc = "Toggle terminal",
 	},
 	{
-		"<leader>tl",
-		function()
-			Snacks.terminal.list()
-		end,
-		desc = "List out Terminals",
-	},
-	{
 		"<leader>to",
 		function()
 			Snacks.terminal.open()
