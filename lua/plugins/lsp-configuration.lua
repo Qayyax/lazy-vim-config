@@ -24,6 +24,7 @@ return {
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("ts_ls")
 			vim.lsp.enable("sourcekit")
+			vim.lsp.enable("gopls")
 
 			-- to link autocompletion to lsps check completions.lua
 
