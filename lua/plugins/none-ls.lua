@@ -17,7 +17,7 @@ return {
 				null_ls.builtins.formatting.swiftformat.with({
 					extra_args = { "--commas", "never" },
 				}),
-				null_ls.builtins.diagnostics.swiftlint,
+				-- null_ls.builtins.diagnostics.swiftlint,
 			},
 
 			-- autoformat on save
