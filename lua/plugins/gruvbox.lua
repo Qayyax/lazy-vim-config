@@ -1,6 +1,6 @@
 return {
 	"ellisonleao/gruvbox.nvim",
-	lazy = false,
+	lazy = true,
 	priority = 1000,
 	config = function()
 		require("gruvbox").setup({
