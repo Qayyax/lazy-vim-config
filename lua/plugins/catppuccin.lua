@@ -17,11 +17,11 @@ return {
 				comments = { "italic" },
 				conditionals = { "italic" },
 			},
-			custom_highlights = function(colors)
-				return {
-					Comment = { fg = colors.flamingo, bg = "#2a203f" },
-				}
-			end,
+			-- custom_highlights = function(colors)
+			-- 	return {
+			-- 		Comment = { fg = colors.flamingo, bg = "#2a203f" },
+			-- 	}
+			-- end,
 		})
 		-- vim.cmd.colorscheme("catppuccin")
 	end,
