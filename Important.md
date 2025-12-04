@@ -21,6 +21,6 @@ Little reminder: the keybind for changing theme quickly is `<leader>cs` which st
 
 ### AI & Terminal Setup
 
-- Install `copilot-language-server` so Sidekick has an LSP backend available (Mason can grab it quickly).
+- Install `copilot-language-server` so Sidekick has an LSP backend available (Mason can grab it quickly) I uninstalled this by the way. Sidekick doesn't need it.
 - Install `tmux` because Sidekick's CLI is configured to run inside it.
-- Check the Sidekick documentation for workflow guidance: https://github.com/folke/sidekick.nvim
+- Check the Sidekick documentation for workflow guidance: <https://github.com/folke/sidekick.nvim>
