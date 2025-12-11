@@ -3,13 +3,13 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	lazy = true, -- remove when needed
+	lazy = false, -- check important.md for more info
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "macchiato",
+			flavour = "mocha",
 			background = {
-				dark = "macchiato",
+				dark = "mocha",
 			},
 			transparent_background = false,
 			neotree = true,
@@ -23,6 +23,6 @@ return {
 			-- 	}
 			-- end,
 		})
-		-- vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin")
 	end,
 }
