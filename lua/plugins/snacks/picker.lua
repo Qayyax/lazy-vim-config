@@ -11,4 +11,8 @@ return {
 			},
 		},
 	},
+	exclude = {
+		".git",
+		"node_modules",
+	},
 }
