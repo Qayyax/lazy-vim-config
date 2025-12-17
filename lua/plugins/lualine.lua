@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			sections = {
-				lualine_x = { "lsp_status", "filetype" },
+				lualine_x = { "filetype" },
 				lualine_y = {},
 			},
 			inactive_sections = {
