@@ -3,7 +3,7 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	lazy = false, -- check important.md for more info
+	lazy = true, -- check important.md for more info
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
@@ -23,6 +23,6 @@ return {
 			-- 	}
 			-- end,
 		})
-		vim.cmd.colorscheme("catppuccin")
+		-- vim.cmd.colorscheme("catppuccin")
 	end,
 }
