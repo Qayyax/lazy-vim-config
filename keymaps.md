@@ -228,10 +228,13 @@
 
 ## Bufferline
 
-| Keymap       | Action               | Description                                    |
-| ------------ | -------------------- | ---------------------------------------------- |
-| `<leader>tp` | BufferLineTogglePin  | Toggle pin for buffer line                     |
-| `<leader>bb` | BufferLineGoToBuffer | Prompt for buffer number and go to that buffer |
+| Keymap       | Action              | Description                             |
+| ------------ | ------------------- | --------------------------------------- |
+| `<leader>tp` | BufferLineTogglePin | Toggle pin for current buffer           |
+| `<leader>bb` | BufferLinePick      | Pick buffer by letter                   |
+| `<leader>bc` | BufferLinePickClose | Pick buffer by letter and close         |
+| `<leader>bn` | BufferLineCycleNext | Go to next buffer in bufferline         |
+| `<leader>bp` | BufferLineCyclePrev | Go to previous buffer in bufferline     |
 
 ## Sidekick
 
