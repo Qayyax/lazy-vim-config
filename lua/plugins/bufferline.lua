@@ -30,5 +30,12 @@ return {
 
 	-- pin buffer
 	vim.keymap.set("n", "<leader>tp", ":BufferLineTogglePin<CR>"),
-	vim.keymap.set("n", "<leader>bb", ":BufferLineGoToBuffer "),
+	-- Pick which buffer to move to based on letters
+	vim.keymap.set("n", "<leader>bb", ":BufferLinePick<CR>"),
+	-- Close buffer to move to based on letters
+	vim.keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>"),
+	-- Go to the next buffer in the bufferline
+	vim.keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>"),
+	-- Go to the prev buffer in the bufferline
+	vim.keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>"),
 }
