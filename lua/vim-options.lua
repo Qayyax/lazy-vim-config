@@ -93,6 +93,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Autocommand to set gohtml as html file type
+vim.api.nvim_create_autocmd("BufReadPre", {
+	pattern = "*.gohtml",
+	command = "set filetype=html",
+})
+
 -- Terminal mode in nvim
 -- Map jk to escape from terminal insert mode
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
