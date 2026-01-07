@@ -3,13 +3,13 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	lazy = true, -- check important.md for more info
+	lazy = false, -- check important.md for more info
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha",
+			flavour = "macchiato",
 			background = {
-				dark = "mocha",
+				dark = "macchiato",
 			},
 			transparent_background = false,
 			neotree = true,
