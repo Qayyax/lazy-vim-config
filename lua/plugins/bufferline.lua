@@ -38,4 +38,8 @@ return {
 	vim.keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>"),
 	-- Go to the prev buffer in the bufferline
 	vim.keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>"),
+	-- Move buffer to the next position
+	vim.keymap.set("n", "<leader>bl", ":BufferLineMoveNext<CR>"),
+	-- Move buffer to the previous position
+	vim.keymap.set("n", "<leader>bh", ":BufferLineMovePrev<CR>"),
 }
