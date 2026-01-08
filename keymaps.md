@@ -86,6 +86,18 @@
 | `<leader>fp`      | Projects      | Browse projects                 |
 | `<leader>fr`      | Recent Files  | Show recent files               |
 
+### Bufferline
+
+| Keymap       | Action             | Description                          |
+| ------------ | ------------------ | ------------------------------------ |
+| `<leader>tp` | Toggle Pin         | Pin/unpin current buffer             |
+| `<leader>bb` | Pick Buffer        | Jump to buffer by letter             |
+| `<leader>bc` | Pick Close         | Close buffer by letter               |
+| `<leader>bn` | Cycle Next         | Go to next buffer in bufferline      |
+| `<leader>bp` | Cycle Previous     | Go to previous buffer in bufferline  |
+| `<leader>bl` | Move Next          | Move buffer to next position         |
+| `<leader>bh` | Move Previous      | Move buffer to previous position     |
+
 ## Search & Grep
 
 ### Text Search
