@@ -13,6 +13,8 @@ return {
 			"tsx",
 			"typescript",
 			"markdown",
+			"regex",
+			"latex",
 			"markdown_inline",
 			"css",
 			"html",
