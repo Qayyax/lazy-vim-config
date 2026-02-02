@@ -8,8 +8,8 @@ return {
 			position = "inline",
 		},
 		code = {
-			enabled = false,
-			inline = false,
+			enabled = true,
+			inline = true,
 		},
 		callout = {
 			note = { highlight = "RenderMarkdownHdNoBg" },
