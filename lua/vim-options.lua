@@ -99,6 +99,14 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 	command = "set filetype=html",
 })
 
+-- Autorefresh page
+-- Enable autoread and set up checking triggers
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = "*",
+})
+
 -- Terminal mode in nvim
 -- Map jk to escape from terminal insert mode
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
