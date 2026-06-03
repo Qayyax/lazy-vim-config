@@ -7,6 +7,8 @@ return {
 
 			transparent = true,
 			italic_comments = true,
+			hide_fillchars = false,
+			borderless_pickers = false,
 		})
 	end,
 }
