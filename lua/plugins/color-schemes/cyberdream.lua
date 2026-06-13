@@ -1,6 +1,6 @@
 return {
 	"scottmckendry/cyberdream.nvim",
-	lazy = false,
+	lazy = true,
 	priority = 1000,
 	config = function()
 		require("cyberdream").setup({
@@ -10,6 +10,6 @@ return {
 			hide_fillchars = false,
 			borderless_pickers = false,
 		})
-		vim.cmd.colorscheme("cyberdream")
+		-- vim.cmd.colorscheme("cyberdream")
 	end,
 }
