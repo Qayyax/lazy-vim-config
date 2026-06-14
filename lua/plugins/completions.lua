@@ -25,8 +25,12 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
+					completion = cmp.config.window.bordered({
+						border = "rounded",
+					}),
+					documentation = cmp.config.window.bordered({
+						border = "rounded",
+					}),
 				},
 				-- autocompletion mapping
 				-- Docs: https://github.com/hrsh7th/nvim-cmp/blob/main/doc/cmp.txt
