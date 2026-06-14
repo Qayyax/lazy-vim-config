@@ -95,7 +95,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Autocommand to set gohtml as html file type
 vim.api.nvim_create_autocmd("BufReadPre", {
-	pattern = "*.gohtml",
+	pattern = { "*.gohtml", "*.ejs" },
 	command = "set filetype=html",
 })
 
